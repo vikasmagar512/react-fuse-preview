@@ -5,10 +5,12 @@ import DocumentationNavigation from '../main/documentation/DocumentationNavigati
 import ar from './navigation-i18n/ar';
 import en from './navigation-i18n/en';
 import tr from './navigation-i18n/tr';
+import kr from './navigation-i18n/kr';
 
 i18next.addResourceBundle('en', 'navigation', en);
 i18next.addResourceBundle('tr', 'navigation', tr);
 i18next.addResourceBundle('ar', 'navigation', ar);
+i18next.addResourceBundle('kr', 'navigation', kr);
 
 const navigationConfig = [
 	{
@@ -28,12 +30,14 @@ const navigationConfig = [
 					{
 						id: 'analytics-dashboard',
 						title: 'Analytics',
+						translate: 'ANALYTICS',
 						type: 'item',
 						url: '/apps/dashboards/analytics'
 					},
 					{
 						id: 'project-dashboard',
 						title: 'Project',
+						translate: 'PROJECT',
 						type: 'item',
 						url: '/apps/dashboards/project'
 					}

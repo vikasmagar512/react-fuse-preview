@@ -16,6 +16,11 @@ const languages = [
 		flag: 'us'
 	},
 	{
+		id: 'kr',
+		title: 'Korean',
+		flag: 'kr'
+	},
+	{
 		id: 'tr',
 		title: 'Turkish',
 		flag: 'tr'

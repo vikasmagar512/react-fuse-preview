@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -17,6 +18,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Widget1(props) {
+	const { t } = useTranslation('AnalyticsDashboardApp');
+
 	const classes = useStyles(props);
 	const theme = useTheme();
 	const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
@@ -35,10 +38,10 @@ function Widget1(props) {
 					<FuseAnimate delay={100}>
 						<div className="flex-col">
 							<Typography className="h2" color="textPrimary">
-								Visitors
+								{t('VISITORS')}
 							</Typography>
 							<Typography className="h5" color="textSecondary">
-								Unique visitors by month
+							{t('UNIQUE_VISITORS_BY_MONTH')}
 							</Typography>
 						</div>
 					</FuseAnimate>

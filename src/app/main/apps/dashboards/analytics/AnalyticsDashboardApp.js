@@ -4,6 +4,8 @@ import withReducer from 'app/store/withReducer';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from '@lodash';
+import { useTranslation } from 'react-i18next';
+
 import reducer from './store';
 import { selectWidgetsEntities, getWidgets } from './store/widgetsSlice';
 import Widget1 from './widgets/Widget1';
@@ -17,6 +19,7 @@ import Widget8 from './widgets/Widget8';
 import Widget9 from './widgets/Widget9';
 
 function AnalyticsDashboardApp() {
+	const { t } = useTranslation('AnalyticsDashboardApp');
 	const dispatch = useDispatch();
 	const widgets = useSelector(selectWidgetsEntities);
 
@@ -37,7 +40,7 @@ function AnalyticsDashboardApp() {
 					<div className="flex flex-1 flex-col min-w-0">
 						<FuseAnimate delay={600}>
 							<Typography className="p-16 pb-8 text-18 font-300">
-								How are your active users trending over time?
+								{t('HOW_ARE_YOU')}
 							</Typography>
 						</FuseAnimate>
 
