@@ -5,8 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
 import React, { useState } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
 
 function Widget5(props) {
+	const { t } = useTranslation('ProjectDashboardApp');
 	const [currentRange, setCurrentRange] = useState('TW');
 	const theme = useTheme();
 
@@ -22,7 +24,7 @@ function Widget5(props) {
 	return (
 		<Paper className="w-full rounded-8 shadow-1">
 			<div className="flex items-center justify-between px-16 py-16 border-b-1">
-				<Typography className="text-16">{widget.title}</Typography>
+				<Typography className="text-16">{t(widget.title)}</Typography>
 				<div className="items-center">
 					{Object.entries(widget.ranges).map(([key, n]) => {
 						return (

@@ -1,4 +1,6 @@
 import mock from '../mock';
+// import { useTranslation } from 'react-i18next';
+// const { t } = useTranslation('ProjectDashboardApp');
 
 const projectDashboardAppDB = {
 	widgets: [
@@ -11,14 +13,14 @@ const projectDashboardAppDB = {
 			},
 			currentRange: 'DT',
 			data: {
-				label: 'DUE TASKS',
+				label: 'DUE_TASKS',
 				count: {
 					DY: 21,
 					DT: 25,
 					DTM: 19
 				},
 				extra: {
-					label: 'Completed',
+					label: 'COMPLETED',
 					count: {
 						DY: 6,
 						DT: 7,
@@ -30,12 +32,12 @@ const projectDashboardAppDB = {
 		},
 		{
 			id: 'widget2',
-			title: 'Overdue',
+			title: 'OVERDUE',
 			data: {
 				label: 'TASKS',
 				count: 4,
 				extra: {
-					label: "Yesterday's overdue",
+					label: "YESTERDAY_OVERDUE",
 					count: 2
 				}
 			},
@@ -43,7 +45,7 @@ const projectDashboardAppDB = {
 		},
 		{
 			id: 'widget3',
-			title: 'Issues',
+			title: 'ISSUES',
 			data: {
 				label: 'OPEN',
 				count: 32,
@@ -56,7 +58,7 @@ const projectDashboardAppDB = {
 		},
 		{
 			id: 'widget4',
-			title: 'Features',
+			title: 'FEATURES',
 			data: {
 				label: 'PROPOSALS',
 				count: 42,
@@ -786,7 +788,7 @@ const projectDashboardAppDB = {
 		},
 		{
 			id: 'widget8',
-			title: 'Budget Distribution',
+			title: 'BUDGET_DISTRIBUTION',
 			mainChart: {
 				labels: ['Wireframing', 'Design', 'Coding', 'Marketing', 'Extra'],
 				datasets: [
@@ -813,7 +815,7 @@ const projectDashboardAppDB = {
 		},
 		{
 			id: 'widget9',
-			title: 'Spent',
+			title: 'SPENT',
 			ranges: {
 				TW: 'This Week',
 				LW: 'Last Week',
@@ -821,7 +823,7 @@ const projectDashboardAppDB = {
 			},
 			currentRange: 'TW',
 			weeklySpent: {
-				title: 'WEEKLY SPENT',
+				title: 'WEEKLY_SPENT',
 				count: {
 					'2W': '2,682.85',
 					LW: '1,445.34',
@@ -891,7 +893,7 @@ const projectDashboardAppDB = {
 				}
 			},
 			totalSpent: {
-				title: 'TOTAL SPENT',
+				title: 'TOTAL_SPENT',
 				count: {
 					'2W': '29,682.85',
 					LW: '31,128.19',
@@ -1031,7 +1033,7 @@ const projectDashboardAppDB = {
 				}
 			},
 			totalBudget: {
-				title: 'TOTAL BUDGET',
+				title: 'TOTAL_BUDGET',
 				count: '124.000,00'
 			}
 		},
@@ -1276,7 +1278,7 @@ const projectDashboardAppDB = {
 		},
 		{
 			id: 'widget11',
-			title: 'Team Members',
+			title: 'TEAM_MEMBERS',
 			table: {
 				columns: [
 					{

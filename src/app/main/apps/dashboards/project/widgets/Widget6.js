@@ -4,8 +4,12 @@ import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
 import React, { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
+
 
 function Widget6(props) {
+	const { t } = useTranslation('ProjectDashboardApp');
+
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
 	const widget = _.merge({}, props.widget);
 
@@ -16,7 +20,7 @@ function Widget6(props) {
 	return (
 		<Paper className="w-full rounded-8 shadow-1">
 			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{widget.title}</Typography>
+				<Typography className="text-16">{t(widget.title)}</Typography>
 
 				<Select
 					native

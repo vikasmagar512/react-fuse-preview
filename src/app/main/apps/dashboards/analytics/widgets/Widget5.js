@@ -6,8 +6,10 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
 
 function Widget5(props) {
+	const { t } = useTranslation('AnalyticsDashboardApp');
 	const theme = useTheme();
 	const [dataset, setDataset] = useState('today');
 	const data = _.merge({}, props.data);
@@ -20,7 +22,7 @@ function Widget5(props) {
 		<Card className="w-full rounded-8 shadow-1">
 			<div className="relative p-24 flex flex-row items-center justify-between">
 				<div className="flex flex-col">
-					<Typography className="h3 sm:h2">Visitors & Page views</Typography>
+					<Typography className="h3 sm:h2">{t('VISITORS_AND_PAGE_VIEWS')}</Typography>
 				</div>
 
 				<div className="flex flex-row items-center">

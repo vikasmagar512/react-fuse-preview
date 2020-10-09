@@ -8,8 +8,12 @@ import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 function Widget7(props) {
+	const { t } = useTranslation('ProjectDashboardApp');
+
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
 
 	function handleChangeRange(ev) {
@@ -19,7 +23,7 @@ function Widget7(props) {
 	return (
 		<Paper className="w-full rounded-8 shadow-1">
 			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{props.widget.title}</Typography>
+				<Typography className="text-16">{t(props.widget.title)}</Typography>
 
 				<Select
 					native

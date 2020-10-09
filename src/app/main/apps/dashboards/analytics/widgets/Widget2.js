@@ -5,8 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import _ from '@lodash';
+import { useTranslation } from 'react-i18next';
 
 function Widget2(props) {
+	const { t } = useTranslation('AnalyticsDashboardApp');
+
 	const theme = useTheme();
 	const data = _.merge({}, props.data);
 
@@ -15,7 +18,7 @@ function Widget2(props) {
 			<div className="p-16 pb-0 flex flex-row flex-wrap items-end">
 				<div className="">
 					<Typography className="h3" color="textSecondary">
-						Conversion
+						{t('CONVERSION')}
 					</Typography>
 					<Typography className="text-56 font-300 leading-none mt-8">{data.conversion.value}</Typography>
 				</div>

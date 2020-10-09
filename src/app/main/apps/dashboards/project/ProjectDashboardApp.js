@@ -18,6 +18,7 @@ import reducer from './store';
 import { selectProjects, getProjects } from './store/projectsSlice';
 
 import { getWidgets, selectWidgets } from './store/widgetsSlice';
+import { useTranslation } from 'react-i18next';
 
 import Widget1 from './widgets/Widget1';
 import Widget10 from './widgets/Widget10';
@@ -53,6 +54,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ProjectDashboardApp(props) {
+	const { t } = useTranslation('ProjectDashboardApp');
+
 	const dispatch = useDispatch();
 	const widgets = useSelector(selectWidgets);
 	const projects = useSelector(selectProjects);
@@ -111,7 +114,7 @@ function ProjectDashboardApp(props) {
 				<div className="flex flex-col justify-between flex-1 px-24 pt-24">
 					<div className="flex justify-between items-start">
 						<Typography className="py-0 sm:py-24 text-24 md:text-32" variant="h4">
-							Welcome back, John!
+							{`${t('WELCOME_BACK')}, John!`}
 						</Typography>
 						<Hidden lgUp>
 							<IconButton
@@ -168,9 +171,9 @@ function ProjectDashboardApp(props) {
 					scrollButtons="off"
 					className="w-full px-24"
 				>
-					<Tab className="text-14 font-600 normal-case" label="Home" />
-					<Tab className="text-14 font-600 normal-case" label="Budget Summary" />
-					<Tab className="text-14 font-600 normal-case" label="Team Members" />
+					<Tab className="text-14 font-600 normal-case" label={t('HOME')}/>
+					<Tab className="text-14 font-600 normal-case" label={t('BUDGET_SUMMARY')} />
+					<Tab className="text-14 font-600 normal-case" label={t('TEAM_MEMBERS')} />
 				</Tabs>
 			}
 			content={

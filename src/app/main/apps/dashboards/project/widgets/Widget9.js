@@ -6,8 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
+
 
 function Widget9(props) {
+	const { t } = useTranslation('ProjectDashboardApp');
+
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
 	const widget = _.merge({}, props.widget);
 	const theme = useTheme();
@@ -19,7 +23,7 @@ function Widget9(props) {
 	return (
 		<Paper className="w-full rounded-8 shadow-1">
 			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{widget.title}</Typography>
+				<Typography className="text-16">{t(widget.title)}</Typography>
 
 				<Select
 					native
@@ -43,7 +47,7 @@ function Widget9(props) {
 				<div className="flex flex-wrap items-center w-full p-8" key={id}>
 					<div className="flex flex-col w-full sm:w-1/2 p-8">
 						<Typography className="text-14" color="textSecondary">
-							{widget[id].title}
+							{t(widget[id].title)}
 						</Typography>
 						<div className="flex items-center">
 							<Typography className="text-32" color="textSecondary">
@@ -79,7 +83,7 @@ function Widget9(props) {
 			<Divider />
 			<div className="flex flex-col w-full px-16 py-24">
 				<Typography className="text-14" color="textSecondary">
-					{widget.totalBudget.title}
+					{t(widget.totalBudget.title)}
 				</Typography>
 				<div className="flex items-center">
 					<Typography className="text-32" color="textSecondary">

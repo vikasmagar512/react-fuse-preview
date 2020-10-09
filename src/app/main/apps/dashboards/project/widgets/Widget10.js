@@ -8,12 +8,16 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 function Widget10(props) {
+	const { t } = useTranslation('ProjectDashboardApp');
+
 	return (
 		<Paper className="w-full rounded-8 shadow-1">
 			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{props.widget.title}</Typography>
+				<Typography className="text-16">{t(props.widget.title)}</Typography>
 			</div>
 			<div className="table-responsive">
 				<Table className="w-full min-w-full">
@@ -21,7 +25,7 @@ function Widget10(props) {
 						<TableRow>
 							{props.widget.table.columns.map(column => (
 								<TableCell key={column.id} className="whitespace-no-wrap">
-									{column.title}
+									{t(column.title)}
 								</TableCell>
 							))}
 						</TableRow>

@@ -492,6 +492,8 @@ const analyticsDashboardAppDB = {
 			id: 'widget7',
 			labels: ['Desktop', 'Mobile', 'Tablet'],
 			datasets: {
+			// 	{id === 1 && <ListSubheader className={classes.subheader}>{t('TODAY')}Today</ListSubheader>}
+            //   {id === 3 && <ListSubheader className={classes.subheader}>{t('YESTERDAY')}Yesterday</ListSubheader>}
 				Today: [
 					{
 						data: [92.8, 6.1, 1.1],

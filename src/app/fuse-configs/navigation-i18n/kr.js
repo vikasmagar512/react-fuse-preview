@@ -4,15 +4,15 @@ const locale = {
 	PROJECT: '프로젝트',
 	ANALYTICS: '분석',
 	CALENDAR: '캘린더',
-	ECOMMERCE: 'E-Commerce',
-	ACADEMY: 'Academy',
-	MAIL: 'Mail',
-	TODO: 'To-Do',
-	FILE_MANAGER: 'File Manager',
-	CONTACTS: 'Contacts',
-	CHAT: 'Chat',
-	SCRUMBOARD: 'Scrumboard',
-	NOTES: 'Notes'
+	ECOMMERCE: '쇼핑몰',
+	ACADEMY: '아카데미',
+	MAIL: '메일',
+	TODO: '해야할일들',
+	FILE_MANAGER: '파일매니저',
+	CONTACTS: '연락처',
+	CHAT: '채팅',
+	SCRUMBOARD: '업무보드',
+	NOTES: '노트'
 };
 
 export default locale;

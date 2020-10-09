@@ -60,7 +60,7 @@ function AnalyticsDashboardApp() {
 
 						<FuseAnimate delay={600}>
 							<Typography className="px-16 pb-8 text-18 font-300">
-								How many pages your users visit?
+								{t('HOW_MANY_PAGES_YOUR_USERS_VISIT')}
 							</Typography>
 						</FuseAnimate>
 
@@ -69,7 +69,7 @@ function AnalyticsDashboardApp() {
 						</div>
 
 						<FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 font-300">Where are your users?</Typography>
+	<Typography className="px-16 pb-8 text-18 font-300">{t('WHERE_ARE_YOUR_USERS')}</Typography>
 						</FuseAnimate>
 
 						<div className="widget w-full p-16 pb-32">
@@ -81,7 +81,8 @@ function AnalyticsDashboardApp() {
 						<div className="mb-32 w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
 								<Typography className="px-16 pb-8 text-18 font-300">
-									What are your top devices?
+									{t('WHAT_ARE_YOUR_TOP_DEVICES')}
+									
 								</Typography>
 							</FuseAnimate>
 
@@ -92,7 +93,7 @@ function AnalyticsDashboardApp() {
 
 						<div className="mb-32 w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
-								<div className="px-16 pb-8 text-18 font-300">How are your sales?</div>
+								<div className="px-16 pb-8 text-18 font-300">{t('HOW_ARE_YOUR_SALES')}</div>
 							</FuseAnimate>
 
 							<div className="widget w-full p-16">
@@ -103,7 +104,7 @@ function AnalyticsDashboardApp() {
 						<div className="mb-32 w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
 								<Typography className="px-16 pb-8 text-18 font-300 lg:pt-0">
-									What are your top campaigns?
+									{t('WHAT_ARE_YOUR_TOP_CAMPAIGNS')}
 								</Typography>
 							</FuseAnimate>
 							<div className="widget w-full p-16">

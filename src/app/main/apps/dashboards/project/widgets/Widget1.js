@@ -4,8 +4,12 @@ import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
 function Widget1(props) {
+	const { t } = useTranslation('ProjectDashboardApp');
+
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
 
 	function handleChangeRange(ev) {
@@ -42,12 +46,12 @@ function Widget1(props) {
 					{props.widget.data.count[currentRange]}
 				</Typography>
 				<Typography className="text-16" color="textSecondary">
-					{props.widget.data.label}
+					{t(props.widget.data.label)}
 				</Typography>
 			</div>
 			<div className="flex items-center px-16 h-52 border-t-1">
 				<Typography className="text-15 flex w-full" color="textSecondary">
-					<span className="truncate">{props.widget.data.extra.label}</span>:
+					<span className="truncate">{t(props.widget.data.extra.label)}</span>:
 					<b className="px-8">{props.widget.data.extra.count[currentRange]}</b>
 				</Typography>
 			</div>
