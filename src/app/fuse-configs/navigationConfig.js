@@ -1,6 +1,6 @@
-import { authRoles } from 'app/auth';
+// import { authRoles } from 'app/auth';
 import i18next from 'i18next';
-import DocumentationNavigation from '../main/documentation/DocumentationNavigation';
+// import DocumentationNavigation from '../main/documentation/DocumentationNavigation';
 
 import ar from './navigation-i18n/ar';
 import en from './navigation-i18n/en';
@@ -96,31 +96,31 @@ const navigationConfig = [
 					}
 				]
 			},
-			{
-				id: 'academy',
-				title: 'Academy',
-				translate: 'ACADEMY',
-				type: 'item',
-				icon: 'school',
-				url: '/apps/academy'
-			},
-			{
-				id: 'mail',
-				title: 'Mail',
-				translate: 'MAIL',
-				type: 'item',
-				icon: 'email',
-				url: '/apps/mail',
-				badge: {
-					title: 25,
-					bg: '#F44336',
-					fg: '#FFFFFF'
-				}
-			},
+			// {
+			// 	id: 'academy',
+			// 	title: 'Academy',
+			// 	translate: 'ACADEMY',
+			// 	type: 'item',
+			// 	icon: 'school',
+			// 	url: '/apps/academy'
+			// },
+			// {
+			// 	id: 'mail',
+			// 	title: 'Mail',
+			// 	translate: 'MAIL',
+			// 	type: 'item',
+			// 	icon: 'email',
+			// 	url: '/apps/mail',
+			// 	badge: {
+			// 		title: 25,
+			// 		bg: '#F44336',
+			// 		fg: '#FFFFFF'
+			// 	}
+			// },
 			{
 				id: 'todo',
-				title: 'To-Do',
-				translate: 'TODO',
+				title: 'Projects',
+				translate: 'PROJECT',
 				type: 'item',
 				icon: 'check_box',
 				url: '/apps/todo',
@@ -130,14 +130,14 @@ const navigationConfig = [
 					fg: '#FFFFFF'
 				}
 			},
-			{
-				id: 'file-manager',
-				title: 'File Manager',
-				translate: 'FILE_MANAGER',
-				type: 'item',
-				icon: 'folder',
-				url: '/apps/file-manager'
-			},
+			// {
+			// 	id: 'file-manager',
+			// 	title: 'File Manager',
+			// 	translate: 'FILE_MANAGER',
+			// 	type: 'item',
+			// 	icon: 'folder',
+			// 	url: '/apps/file-manager'
+			// },
 			{
 				id: 'contacts',
 				title: 'Contacts',
@@ -159,14 +159,14 @@ const navigationConfig = [
 					fg: '#FFFFFF'
 				}
 			},
-			{
-				id: 'scrumboard',
-				title: 'Scrumboard',
-				translate: 'SCRUMBOARD',
-				type: 'item',
-				icon: 'assessment',
-				url: '/apps/scrumboard'
-			},
+			// {
+			// 	id: 'scrumboard',
+			// 	title: 'Scrumboard',
+			// 	translate: 'SCRUMBOARD',
+			// 	type: 'item',
+			// 	icon: 'assessment',
+			// 	url: '/apps/scrumboard'
+			// },
 			{
 				id: 'notes',
 				title: 'Notes',
@@ -315,13 +315,13 @@ const navigationConfig = [
 					}
 				]
 			},
-			{
-				id: 'maintenance',
-				title: 'Maintenance',
-				type: 'item',
-				icon: 'build',
-				url: '/pages/maintenance'
-			},
+			// {
+			// 	id: 'maintenance',
+			// 	title: 'Maintenance',
+			// 	type: 'item',
+			// 	icon: 'build',
+			// 	url: '/pages/maintenance'
+			// },
 			{
 				id: 'pricing',
 				title: 'Pricing',
@@ -355,26 +355,26 @@ const navigationConfig = [
 				icon: 'person',
 				url: '/pages/profile'
 			},
-			{
-				id: 'search',
-				title: 'Search',
-				type: 'collapse',
-				icon: 'search',
-				children: [
-					{
-						id: 'classic-search',
-						title: 'Classic Search',
-						type: 'item',
-						url: '/pages/search/classic'
-					},
-					{
-						id: 'modern-search',
-						title: 'Modern Search',
-						type: 'item',
-						url: '/pages/search/modern'
-					}
-				]
-			},
+			// {
+			// 	id: 'search',
+			// 	title: 'Search',
+			// 	type: 'collapse',
+			// 	icon: 'search',
+			// 	children: [
+			// 		{
+			// 			id: 'classic-search',
+			// 			title: 'Classic Search',
+			// 			type: 'item',
+			// 			url: '/pages/search/classic'
+			// 		},
+			// 		{
+			// 			id: 'modern-search',
+			// 			title: 'Modern Search',
+			// 			type: 'item',
+			// 			url: '/pages/search/modern'
+			// 		}
+			// 	]
+			// },
 			{
 				id: 'faq',
 				title: 'Faq',
@@ -382,413 +382,413 @@ const navigationConfig = [
 				icon: 'help',
 				url: '/pages/faq'
 			},
-			{
-				id: 'knowledge-base',
-				title: 'Knowledge Base',
-				type: 'item',
-				icon: 'import_contacts',
-				url: '/pages/knowledge-base'
-			}
+			// {
+			// 	id: 'knowledge-base',
+			// 	title: 'Knowledge Base',
+			// 	type: 'item',
+			// 	icon: 'import_contacts',
+			// 	url: '/pages/knowledge-base'
+			// }
 		]
 	},
-	{
-		id: 'user-interface',
-		title: 'User Interface',
-		type: 'group',
-		icon: 'web',
-		children: [
-			{
-				id: 'icons',
-				title: 'Icons',
-				type: 'item',
-				icon: 'photo',
-				url: '/ui/icons'
-			},
-			{
-				id: 'typography',
-				title: 'Typography',
-				type: 'item',
-				icon: 'text_fields',
-				url: '/ui/typography'
-			},
-			{
-				id: 'helper-classes',
-				title: 'Helper Classes',
-				type: 'item',
-				icon: 'help',
-				url: '/ui/helper-classes'
-			},
-			{
-				id: 'page-layouts',
-				title: 'Page Layouts',
-				type: 'collapse',
-				icon: 'view_quilt',
-				children: [
-					{
-						id: 'carded',
-						title: 'Carded',
-						type: 'collapse',
-						badge: {
-							title: 12,
-							bg: '#525E8A',
-							fg: '#FFFFFF'
-						},
-						children: [
-							{
-								id: 'carded-full-width',
-								title: 'Full Width',
-								type: 'item',
-								url: '/ui/page-layouts/carded/full-width'
-							},
-							{
-								id: 'carded-full-width-tabbed',
-								title: 'Full Width Tabbed',
-								type: 'item',
-								url: '/ui/page-layouts/carded/full-width-tabbed'
-							},
-							{
-								id: 'carded-full-width-2',
-								title: 'Full Width 2',
-								type: 'item',
-								url: '/ui/page-layouts/carded/full-width-2'
-							},
-							{
-								id: 'carded-full-width-2-tabbed',
-								title: 'Full Width 2 Tabbed',
-								type: 'item',
-								url: '/ui/page-layouts/carded/full-width-2-tabbed'
-							},
-							{
-								id: 'carded-left-sidebar',
-								title: 'Left Sidebar',
-								type: 'item',
-								url: '/ui/page-layouts/carded/left-sidebar'
-							},
-							{
-								id: 'carded-left-sidebar-tabbed',
-								title: 'Left Sidebar Tabbed',
-								type: 'item',
-								url: '/ui/page-layouts/carded/left-sidebar-tabbed'
-							},
-							{
-								id: 'carded-left-sidebar-2',
-								title: 'Left Sidebar 2',
-								type: 'item',
-								url: '/ui/page-layouts/carded/left-sidebar-2'
-							},
-							{
-								id: 'carded-left-sidebar-2-tabbed',
-								title: 'Left Sidebar 2 Tabbed',
-								type: 'item',
-								url: '/ui/page-layouts/carded/left-sidebar-2-tabbed'
-							},
-							{
-								id: 'carded-right-sidebar',
-								title: 'Right Sidebar',
-								type: 'item',
-								url: '/ui/page-layouts/carded/right-sidebar'
-							},
-							{
-								id: 'carded-right-sidebar-tabbed',
-								title: 'Right Sidebar Tabbed',
-								type: 'item',
-								url: '/ui/page-layouts/carded/right-sidebar-tabbed'
-							},
-							{
-								id: 'carded-right-sidebar-2',
-								title: 'Right Sidebar 2',
-								type: 'item',
-								url: '/ui/page-layouts/carded/right-sidebar-2'
-							},
-							{
-								id: 'carded-right-sidebar-2-tabbed',
-								title: 'Right Sidebar 2 Tabbed',
-								type: 'item',
-								url: '/ui/page-layouts/carded/right-sidebar-2-tabbed'
-							}
-						]
-					},
-					{
-						id: 'simple',
-						title: 'Simple',
-						type: 'collapse',
-						badge: {
-							title: 8,
-							bg: '#525E8A',
-							fg: '#FFFFFF'
-						},
-						children: [
-							{
-								id: 'simple-full-width',
-								title: 'Full Width',
-								type: 'item',
-								url: '/ui/page-layouts/simple/full-width'
-							},
-							{
-								id: 'simple-left-sidebar',
-								title: 'Left Sidebar',
-								type: 'item',
-								url: '/ui/page-layouts/simple/left-sidebar'
-							},
-							{
-								id: 'simple-left-sidebar-2',
-								title: 'Left Sidebar 2',
-								type: 'item',
-								url: '/ui/page-layouts/simple/left-sidebar-2'
-							},
-							{
-								id: 'simple-left-sidebar-3',
-								title: 'Left Sidebar 3',
-								type: 'item',
-								url: '/ui/page-layouts/simple/left-sidebar-3'
-							},
-							{
-								id: 'simple-right-sidebar',
-								title: 'Right Sidebar',
-								type: 'item',
-								url: '/ui/page-layouts/simple/right-sidebar'
-							},
-							{
-								id: 'simple-right-sidebar-2',
-								title: 'Right Sidebar 2',
-								type: 'item',
-								url: '/ui/page-layouts/simple/right-sidebar-2'
-							},
-							{
-								id: 'simple-right-sidebar-3',
-								title: 'Right Sidebar 3',
-								type: 'item',
-								url: '/ui/page-layouts/simple/right-sidebar-3'
-							},
-							{
-								id: 'simple-tabbed',
-								title: 'Tabbed',
-								type: 'item',
-								url: '/ui/page-layouts/simple/tabbed'
-							}
-						]
-					},
-					{
-						id: 'blank',
-						title: 'Blank',
-						type: 'item',
-						url: '/ui/page-layouts/blank'
-					}
-				]
-			}
-		]
-	},
-	DocumentationNavigation,
-	{
-		type: 'divider',
-		id: 'divider-1'
-	},
-	{
-		id: 'auth',
-		title: 'Auth',
-		type: 'group',
-		icon: 'apps',
-		children: [
-			{
-				id: 'login',
-				title: 'Login',
-				type: 'item',
-				url: '/login',
-				auth: authRoles.onlyGuest,
-				icon: 'lock'
-			},
-			{
-				id: 'register',
-				title: 'Register',
-				type: 'item',
-				url: '/register',
-				auth: authRoles.onlyGuest,
-				icon: 'person_add'
-			},
-			{
-				id: 'logout',
-				title: 'Logout',
-				type: 'item',
-				auth: authRoles.user,
-				url: '/logout',
-				icon: 'exit_to_app'
-			},
-			{
-				id: 'auth-admin-example',
-				title: 'Admin: Auth protected page',
-				type: 'item',
-				url: '/auth/admin-role-example',
-				icon: 'security'
-			},
-			{
-				id: 'only-admin-navigation-item',
-				title: 'Nav item only for Admin',
-				type: 'item',
-				auth: authRoles.admin,
-				url: '/auth/admin-role-example',
-				icon: 'verified_user'
-			},
-			{
-				id: 'auth-staff-example',
-				title: 'Staff: Auth protected page',
-				type: 'item',
-				url: '/auth/staff-role-example',
-				icon: 'security'
-			},
-			{
-				id: 'only-staff-navigation-item',
-				title: 'Nav item only for Staff',
-				type: 'item',
-				auth: authRoles.staff,
-				url: '/auth/staff-role-example',
-				icon: 'verified_user'
-			},
-			{
-				id: 'auth-guest-example',
-				title: 'Guest: Auth protected page',
-				type: 'item',
-				url: '/auth/guest-role-example',
-				icon: 'security'
-			},
-			{
-				id: 'only-guest-navigation-item',
-				title: 'Nav item only for Guest',
-				type: 'item',
-				auth: authRoles.onlyGuest,
-				url: '/auth/guest-role-example',
-				icon: 'verified_user'
-			}
-		]
-	},
-	{
-		type: 'divider',
-		id: 'divider-2'
-	},
-	{
-		id: 'test-group-level-1',
-		title: 'Test Group Level 1',
-		type: 'group',
-		icon: 'apps',
-		children: [
-			{
-				id: 'test-item',
-				title: 'Test Item',
-				type: 'item',
-				icon: 'list',
-				url: '#'
-			},
-			{
-				id: 'test-link',
-				title: 'Test Link',
-				type: 'link',
-				icon: 'link',
-				url: 'http://fusetheme.com',
-				target: '_blank'
-			},
-			{
-				id: 'test-collapse-level-1',
-				title: 'Test Collapse Level 1',
-				type: 'collapse',
-				icon: 'dashboard',
-				children: [
-					{
-						id: 'test-item-level-1',
-						title: 'Test Item Level 1',
-						type: 'item',
-						url: '#'
-					},
-					{
-						id: 'test-link-level-1',
-						title: 'Test Link Level 1',
-						type: 'link',
-						url: 'http://fusetheme.com',
-						target: '_blank'
-					},
-					{
-						id: 'test-collapse-2',
-						title: 'Test Collapse Level 2',
-						type: 'collapse',
-						children: [
-							{
-								id: 'test-item-level-2',
-								title: 'Test Item Level 2',
-								type: 'item',
-								url: '#'
-							},
-							{
-								id: 'test-link-level-2',
-								title: 'Test Link Level 2',
-								type: 'link',
-								url: 'http://fusetheme.com',
-								target: '_blank'
-							},
-							{
-								id: 'test-collapse-level-3',
-								title: 'Test Collapse Level 3',
-								type: 'collapse',
-								children: [
-									{
-										id: 'test-item-level-3',
-										title: 'Test Item Level 3',
-										type: 'item',
-										url: '#'
-									},
-									{
-										id: 'test-link-level-3',
-										title: 'Test Link Level 3',
-										type: 'link',
-										url: 'http://fusetheme.com',
-										target: '_blank'
-									},
-									{
-										id: 'test-collapse-level-4',
-										title: 'Test Collapse Level 4',
-										type: 'collapse',
-										children: [
-											{
-												id: 'test-item-level-4',
-												title: 'Test Item Level 4',
-												type: 'item',
-												url: '#'
-											}
-										]
-									}
-								]
-							}
-						]
-					},
-					{
-						id: 'test-group-level-2',
-						title: 'Test Group Level 2',
-						type: 'group',
-						icon: 'apps',
-						children: [
-							{
-								id: 'test-collapse-level-2-2',
-								title: 'Test Collapse Level 2',
-								type: 'collapse',
-								children: [
-									{
-										id: 'test-item-level-2-2',
-										title: 'Test Item Level 2',
-										type: 'item',
-										url: '#'
-									},
-									{
-										id: 'test-link-level-2-2',
-										title: 'Test Link Level 2',
-										type: 'link',
-										url: 'http://fusetheme.com',
-										target: '_blank'
-									}
-								]
-							}
-						]
-					}
-				]
-			}
-		]
-	}
+	// {
+	// 	id: 'user-interface',
+	// 	title: 'User Interface',
+	// 	type: 'group',
+	// 	icon: 'web',
+	// 	children: [
+	// 		{
+	// 			id: 'icons',
+	// 			title: 'Icons',
+	// 			type: 'item',
+	// 			icon: 'photo',
+	// 			url: '/ui/icons'
+	// 		},
+	// 		{
+	// 			id: 'typography',
+	// 			title: 'Typography',
+	// 			type: 'item',
+	// 			icon: 'text_fields',
+	// 			url: '/ui/typography'
+	// 		},
+	// 		{
+	// 			id: 'helper-classes',
+	// 			title: 'Helper Classes',
+	// 			type: 'item',
+	// 			icon: 'help',
+	// 			url: '/ui/helper-classes'
+	// 		},
+	// 		{
+	// 			id: 'page-layouts',
+	// 			title: 'Page Layouts',
+	// 			type: 'collapse',
+	// 			icon: 'view_quilt',
+	// 			children: [
+	// 				{
+	// 					id: 'carded',
+	// 					title: 'Carded',
+	// 					type: 'collapse',
+	// 					badge: {
+	// 						title: 12,
+	// 						bg: '#525E8A',
+	// 						fg: '#FFFFFF'
+	// 					},
+	// 					children: [
+	// 						{
+	// 							id: 'carded-full-width',
+	// 							title: 'Full Width',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/full-width'
+	// 						},
+	// 						{
+	// 							id: 'carded-full-width-tabbed',
+	// 							title: 'Full Width Tabbed',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/full-width-tabbed'
+	// 						},
+	// 						{
+	// 							id: 'carded-full-width-2',
+	// 							title: 'Full Width 2',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/full-width-2'
+	// 						},
+	// 						{
+	// 							id: 'carded-full-width-2-tabbed',
+	// 							title: 'Full Width 2 Tabbed',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/full-width-2-tabbed'
+	// 						},
+	// 						{
+	// 							id: 'carded-left-sidebar',
+	// 							title: 'Left Sidebar',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/left-sidebar'
+	// 						},
+	// 						{
+	// 							id: 'carded-left-sidebar-tabbed',
+	// 							title: 'Left Sidebar Tabbed',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/left-sidebar-tabbed'
+	// 						},
+	// 						{
+	// 							id: 'carded-left-sidebar-2',
+	// 							title: 'Left Sidebar 2',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/left-sidebar-2'
+	// 						},
+	// 						{
+	// 							id: 'carded-left-sidebar-2-tabbed',
+	// 							title: 'Left Sidebar 2 Tabbed',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/left-sidebar-2-tabbed'
+	// 						},
+	// 						{
+	// 							id: 'carded-right-sidebar',
+	// 							title: 'Right Sidebar',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/right-sidebar'
+	// 						},
+	// 						{
+	// 							id: 'carded-right-sidebar-tabbed',
+	// 							title: 'Right Sidebar Tabbed',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/right-sidebar-tabbed'
+	// 						},
+	// 						{
+	// 							id: 'carded-right-sidebar-2',
+	// 							title: 'Right Sidebar 2',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/right-sidebar-2'
+	// 						},
+	// 						{
+	// 							id: 'carded-right-sidebar-2-tabbed',
+	// 							title: 'Right Sidebar 2 Tabbed',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/carded/right-sidebar-2-tabbed'
+	// 						}
+	// 					]
+	// 				},
+	// 				{
+	// 					id: 'simple',
+	// 					title: 'Simple',
+	// 					type: 'collapse',
+	// 					badge: {
+	// 						title: 8,
+	// 						bg: '#525E8A',
+	// 						fg: '#FFFFFF'
+	// 					},
+	// 					children: [
+	// 						{
+	// 							id: 'simple-full-width',
+	// 							title: 'Full Width',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/full-width'
+	// 						},
+	// 						{
+	// 							id: 'simple-left-sidebar',
+	// 							title: 'Left Sidebar',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/left-sidebar'
+	// 						},
+	// 						{
+	// 							id: 'simple-left-sidebar-2',
+	// 							title: 'Left Sidebar 2',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/left-sidebar-2'
+	// 						},
+	// 						{
+	// 							id: 'simple-left-sidebar-3',
+	// 							title: 'Left Sidebar 3',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/left-sidebar-3'
+	// 						},
+	// 						{
+	// 							id: 'simple-right-sidebar',
+	// 							title: 'Right Sidebar',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/right-sidebar'
+	// 						},
+	// 						{
+	// 							id: 'simple-right-sidebar-2',
+	// 							title: 'Right Sidebar 2',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/right-sidebar-2'
+	// 						},
+	// 						{
+	// 							id: 'simple-right-sidebar-3',
+	// 							title: 'Right Sidebar 3',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/right-sidebar-3'
+	// 						},
+	// 						{
+	// 							id: 'simple-tabbed',
+	// 							title: 'Tabbed',
+	// 							type: 'item',
+	// 							url: '/ui/page-layouts/simple/tabbed'
+	// 						}
+	// 					]
+	// 				},
+	// 				{
+	// 					id: 'blank',
+	// 					title: 'Blank',
+	// 					type: 'item',
+	// 					url: '/ui/page-layouts/blank'
+	// 				}
+	// 			]
+	// 		}
+	// 	]
+	// },
+	// DocumentationNavigation,
+	// {
+	// 	type: 'divider',
+	// 	id: 'divider-1'
+	// },
+	// {
+	// 	id: 'auth',
+	// 	title: 'Auth',
+	// 	type: 'group',
+	// 	icon: 'apps',
+	// 	children: [
+	// 		{
+	// 			id: 'login',
+	// 			title: 'Login',
+	// 			type: 'item',
+	// 			url: '/login',
+	// 			auth: authRoles.onlyGuest,
+	// 			icon: 'lock'
+	// 		},
+	// 		{
+	// 			id: 'register',
+	// 			title: 'Register',
+	// 			type: 'item',
+	// 			url: '/register',
+	// 			auth: authRoles.onlyGuest,
+	// 			icon: 'person_add'
+	// 		},
+	// 		{
+	// 			id: 'logout',
+	// 			title: 'Logout',
+	// 			type: 'item',
+	// 			auth: authRoles.user,
+	// 			url: '/logout',
+	// 			icon: 'exit_to_app'
+	// 		},
+	// 		{
+	// 			id: 'auth-admin-example',
+	// 			title: 'Admin: Auth protected page',
+	// 			type: 'item',
+	// 			url: '/auth/admin-role-example',
+	// 			icon: 'security'
+	// 		},
+	// 		{
+	// 			id: 'only-admin-navigation-item',
+	// 			title: 'Nav item only for Admin',
+	// 			type: 'item',
+	// 			auth: authRoles.admin,
+	// 			url: '/auth/admin-role-example',
+	// 			icon: 'verified_user'
+	// 		},
+	// 		{
+	// 			id: 'auth-staff-example',
+	// 			title: 'Staff: Auth protected page',
+	// 			type: 'item',
+	// 			url: '/auth/staff-role-example',
+	// 			icon: 'security'
+	// 		},
+	// 		{
+	// 			id: 'only-staff-navigation-item',
+	// 			title: 'Nav item only for Staff',
+	// 			type: 'item',
+	// 			auth: authRoles.staff,
+	// 			url: '/auth/staff-role-example',
+	// 			icon: 'verified_user'
+	// 		},
+	// 		{
+	// 			id: 'auth-guest-example',
+	// 			title: 'Guest: Auth protected page',
+	// 			type: 'item',
+	// 			url: '/auth/guest-role-example',
+	// 			icon: 'security'
+	// 		},
+	// 		{
+	// 			id: 'only-guest-navigation-item',
+	// 			title: 'Nav item only for Guest',
+	// 			type: 'item',
+	// 			auth: authRoles.onlyGuest,
+	// 			url: '/auth/guest-role-example',
+	// 			icon: 'verified_user'
+	// 		}
+	// 	]
+	// },
+	// {
+	// 	type: 'divider',
+	// 	id: 'divider-2'
+	// },
+	// {
+	// 	id: 'test-group-level-1',
+	// 	title: 'Test Group Level 1',
+	// 	type: 'group',
+	// 	icon: 'apps',
+	// 	children: [
+	// 		{
+	// 			id: 'test-item',
+	// 			title: 'Test Item',
+	// 			type: 'item',
+	// 			icon: 'list',
+	// 			url: '#'
+	// 		},
+	// 		{
+	// 			id: 'test-link',
+	// 			title: 'Test Link',
+	// 			type: 'link',
+	// 			icon: 'link',
+	// 			url: 'http://fusetheme.com',
+	// 			target: '_blank'
+	// 		},
+	// 		{
+	// 			id: 'test-collapse-level-1',
+	// 			title: 'Test Collapse Level 1',
+	// 			type: 'collapse',
+	// 			icon: 'dashboard',
+	// 			children: [
+	// 				{
+	// 					id: 'test-item-level-1',
+	// 					title: 'Test Item Level 1',
+	// 					type: 'item',
+	// 					url: '#'
+	// 				},
+	// 				{
+	// 					id: 'test-link-level-1',
+	// 					title: 'Test Link Level 1',
+	// 					type: 'link',
+	// 					url: 'http://fusetheme.com',
+	// 					target: '_blank'
+	// 				},
+	// 				{
+	// 					id: 'test-collapse-2',
+	// 					title: 'Test Collapse Level 2',
+	// 					type: 'collapse',
+	// 					children: [
+	// 						{
+	// 							id: 'test-item-level-2',
+	// 							title: 'Test Item Level 2',
+	// 							type: 'item',
+	// 							url: '#'
+	// 						},
+	// 						{
+	// 							id: 'test-link-level-2',
+	// 							title: 'Test Link Level 2',
+	// 							type: 'link',
+	// 							url: 'http://fusetheme.com',
+	// 							target: '_blank'
+	// 						},
+	// 						{
+	// 							id: 'test-collapse-level-3',
+	// 							title: 'Test Collapse Level 3',
+	// 							type: 'collapse',
+	// 							children: [
+	// 								{
+	// 									id: 'test-item-level-3',
+	// 									title: 'Test Item Level 3',
+	// 									type: 'item',
+	// 									url: '#'
+	// 								},
+	// 								{
+	// 									id: 'test-link-level-3',
+	// 									title: 'Test Link Level 3',
+	// 									type: 'link',
+	// 									url: 'http://fusetheme.com',
+	// 									target: '_blank'
+	// 								},
+	// 								{
+	// 									id: 'test-collapse-level-4',
+	// 									title: 'Test Collapse Level 4',
+	// 									type: 'collapse',
+	// 									children: [
+	// 										{
+	// 											id: 'test-item-level-4',
+	// 											title: 'Test Item Level 4',
+	// 											type: 'item',
+	// 											url: '#'
+	// 										}
+	// 									]
+	// 								}
+	// 							]
+	// 						}
+	// 					]
+	// 				},
+	// 				{
+	// 					id: 'test-group-level-2',
+	// 					title: 'Test Group Level 2',
+	// 					type: 'group',
+	// 					icon: 'apps',
+	// 					children: [
+	// 						{
+	// 							id: 'test-collapse-level-2-2',
+	// 							title: 'Test Collapse Level 2',
+	// 							type: 'collapse',
+	// 							children: [
+	// 								{
+	// 									id: 'test-item-level-2-2',
+	// 									title: 'Test Item Level 2',
+	// 									type: 'item',
+	// 									url: '#'
+	// 								},
+	// 								{
+	// 									id: 'test-link-level-2-2',
+	// 									title: 'Test Link Level 2',
+	// 									type: 'link',
+	// 									url: 'http://fusetheme.com',
+	// 									target: '_blank'
+	// 								}
+	// 							]
+	// 						}
+	// 					]
+	// 				}
+	// 			]
+	// 		}
+	// 	]
+	// }
 ];
 
 export default navigationConfig;
