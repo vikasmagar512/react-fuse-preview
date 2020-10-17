@@ -6,6 +6,11 @@ const locale = {
 
 	CALENDAR: 'Takvim',
 	ECOMMERCE: 'E-Ticaret',
+	RECEIPTS: 'RECEIPTS',
+	SUBMIT_RECEIPTS:'Submit receipts',
+	RECEIPT_STATUS:'Receipt status',
+	APPROVE_RECEIPTS:'Approve Receipt',
+
 	ACADEMY: 'Akademi',
 	MAIL: 'Posta',
 	TODO: 'Yapılacaklar',

@@ -7,6 +7,8 @@ const fileManagerDB = {
 			name: 'Work Documents',
 			type: 'folder',
 			owner: 'me',
+			amount: 350,
+			status: 'Denied',
 			size: '',
 			modified: 'July 8, 2017',
 			opened: 'July 8, 2017',
@@ -18,6 +20,8 @@ const fileManagerDB = {
 		{
 			id: '2',
 			name: 'Public Documents',
+			amount: 350,
+			status: 'Denied',
 			type: 'folder',
 			owner: 'public',
 			size: '',
@@ -31,6 +35,8 @@ const fileManagerDB = {
 		{
 			id: '3',
 			name: 'Private Documents',
+			amount: 350,
+			status: 'Denied',
 			type: 'folder',
 			owner: 'me',
 			size: '',
@@ -53,6 +59,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		},
 		{
@@ -67,6 +75,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		},
 		{
@@ -81,6 +91,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		},
 		{
@@ -95,6 +107,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		},
 		{
@@ -109,6 +123,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		},
 		{
@@ -123,6 +139,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		},
 		{
@@ -137,6 +155,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		},
 		{
@@ -151,6 +171,8 @@ const fileManagerDB = {
 			extention: '',
 			location: 'My Files > Documents',
 			offline: true,
+			amount: 350,
+			status: 'Denied',
 			preview: 'assets/images/etc/sample-file-preview.jpg'
 		}
 	]

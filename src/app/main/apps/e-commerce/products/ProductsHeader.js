@@ -58,8 +58,8 @@ function ProductsHeader(props) {
 					variant="contained"
 					color="secondary"
 				>
-					<span className="hidden sm:flex">Add New Product</span>
-					<span className="flex sm:hidden">New</span>
+					<span className="hidden sm:flex">Submit receipt</span>
+					<span className="flex sm:hidden">Submit receipt</span>
 				</Button>
 			</FuseAnimate>
 		</div>

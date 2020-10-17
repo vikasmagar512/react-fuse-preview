@@ -10,7 +10,17 @@ function DetailSidebarHeader(props) {
 	const selectedItem = useSelector(state => selectFileById(state, state.fileManagerApp.files.selectedItemId));
 
 	if (!selectedItem) {
-		return null;
+		return (
+			<div className="flex flex-col justify-between h-full p-4 sm:p-12">
+				<div className="p-12">
+					<FuseAnimate delay={200}>
+						<Typography variant="subtitle1" className="mb-8">
+							Please select row to see details
+						</Typography>
+					</FuseAnimate>
+				</div>
+			</div>
+		);
 	}
 
 	return (

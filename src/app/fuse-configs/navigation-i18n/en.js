@@ -5,6 +5,11 @@ const locale = {
 	ANALYTICS:'Analytics',
 	CALENDAR: 'Calendar',
 	ECOMMERCE: 'E-Commerce',
+	RECEIPTS: 'RECEIPTS',
+	SUBMIT_RECEIPTS:'Submit receipts',
+	RECEIPT_STATUS:'Receipt status',
+	APPROVE_RECEIPTS:'Approve Receipt',
+
 	ACADEMY: 'Academy',
 	MAIL: 'Mail',
 	TODO: 'To-Do',

@@ -37,9 +37,18 @@ function DetailSidebarContent(props) {
 	const classes = useStyles();
 
 	if (!selectedItem) {
-		return null;
+		return (
+			<div className="flex flex-col justify-between h-full p-4 sm:p-12">
+				<div className="p-12">
+					<FuseAnimate delay={200}>
+						<Typography variant="subtitle1" className="mb-8">
+							Please select row to see details
+						</Typography>
+					</FuseAnimate>
+				</div>
+			</div>
+		);
 	}
-
 	return (
 		<FuseAnimate animation="transition.slideUpIn" delay={200}>
 			<div className="file-details p-16 sm:p-24">

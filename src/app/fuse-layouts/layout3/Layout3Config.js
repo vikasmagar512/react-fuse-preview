@@ -10,8 +10,8 @@ const config = {
 			display: true,
 			position: 'above'
 		},
-		footer: {
-			display: true,
+		footer: {			
+			display: false,
 			style: 'fixed'
 		},
 		leftSidePanel: {

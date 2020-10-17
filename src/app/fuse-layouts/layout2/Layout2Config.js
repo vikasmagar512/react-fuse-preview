@@ -10,9 +10,9 @@ const config = {
 			display: true,
 			position: 'below'
 		},
-		footer: {
-			display: true,
-			style: 'fixed'
+		footer: {			
+			display: false,
+			style: 'fixed',
 		},
 		leftSidePanel: {
 			display: true

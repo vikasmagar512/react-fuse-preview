@@ -5,7 +5,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import withReducer from 'app/store/withReducer';
 import React, { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Breadcrumb from './Breadcrumb';
 import DetailSidebarContent from './DetailSidebarContent';
 import DetailSidebarHeader from './DetailSidebarHeader';
@@ -13,12 +13,10 @@ import FileList from './FileList';
 import MainSidebarContent from './MainSidebarContent';
 import MainSidebarHeader from './MainSidebarHeader';
 import reducer from './store';
-import { selectFileById, getFiles } from './store/filesSlice';
+import { getFiles } from './store/filesSlice';
 
-function FileManagerApp() {
+function FileManagerApp(props) {
 	const dispatch = useDispatch();
-	const selectedItem = useSelector(state => selectFileById(state, state.fileManagerApp.files.selectedItemId));
-
 	const pageLayout = useRef(null);
 
 	useEffect(() => {
@@ -54,20 +52,21 @@ function FileManagerApp() {
 						<FuseAnimate animation="transition.expandIn" delay={600}>
 							<Fab
 								color="secondary"
-								aria-label="add"
+								aria-label="Submit A Receipt"
 								className="absolute bottom-0 ltr:left-0 rtl:right-0 mx-16 -mb-28 z-999"
+								onClick={()=>{
+									props.history.push(`/apps/e-commerce/products/new`);
+								}}
 							>
 								<Icon>add</Icon>
 							</Fab>
-						</FuseAnimate>
+						</FuseAnimate> 
 						<FuseAnimate delay={200}>
 							<div>
-								{selectedItem && (
-									<Breadcrumb
-										selected={selectedItem}
-										className="flex flex-1 ltr:pl-72 rtl:pr-72 pb-12 text-16 sm:text-24"
-									/>
-								)}
+								<Breadcrumb
+									selected={{location:'Receipt Status'}}
+									className="flex flex-1 ltr:pl-72 rtl:pr-72 pb-12 text-16 sm:text-24"
+								/>
 							</div>
 						</FuseAnimate>
 					</div>

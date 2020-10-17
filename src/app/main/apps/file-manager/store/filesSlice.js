@@ -19,11 +19,15 @@ export const {
 const filesSlice = createSlice({
 	name: 'fileManagerApp/files',
 	initialState: filesAdapter.getInitialState({
-		selectedItemId: '1'
+		selectedItemId: '12',
+		selectedItems: []
 	}),
 	reducers: {
 		setSelectedItem: (state, action) => {
 			state.selectedItemId = action.payload;
+		},
+		setSelectedItems: (state, action) => {
+			state.selectedItems = action.payload;
 		}
 	},
 	extraReducers: {
@@ -32,5 +36,6 @@ const filesSlice = createSlice({
 });
 
 export const { setSelectedItem } = filesSlice.actions;
+export const { setSelectedItems } = filesSlice.actions;
 
 export default filesSlice.reducer;
