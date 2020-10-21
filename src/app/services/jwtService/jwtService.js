@@ -100,8 +100,7 @@ class JwtService extends FuseUtils.EventEmitter {
 		]
 	};
 	init() {
-		// axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
-		axios.defaults.baseURL = "http://192.168.43.192:3001/api"
+		axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
 		// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 		axios.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -162,7 +161,7 @@ class JwtService extends FuseUtils.EventEmitter {
 	signInWithEmailAndPassword = (email, password) => {
 		return new Promise((resolve, reject) => {
 			axios
-				.post('/auth/login', {
+				.post('/api/auth/login', {
 					username:email,
 					password
 				})
@@ -195,7 +194,7 @@ class JwtService extends FuseUtils.EventEmitter {
 	signInWithToken = () => {
 		return new Promise((resolve, reject) => {
 			axios
-				.post('/auth/verify-token', {
+				.post('/api/auth/verify-token', {
 					access_token: this.getAccessToken()
 				})
 				.then(response => {
