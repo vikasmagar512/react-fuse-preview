@@ -7,11 +7,11 @@ const ECommerceAppConfig = {
 	},
 	routes: [
 		{
-			path: '/apps/e-commerce/products/:productId/:productHandle?',
+			path: '/apps/e-commerce/receipts/:productId/:productHandle?',
 			component: React.lazy(() => import('./product/Product'))
 		},
 		{
-			path: '/apps/e-commerce/products',
+			path: '/apps/e-commerce/receipts',
 			component: React.lazy(() => import('./products/Products'))
 		},
 		// {
@@ -23,14 +23,14 @@ const ECommerceAppConfig = {
 		// 	component: React.lazy(() => import('./orders/Orders'))
 		// },
 		{
-			path: '/apps/e-commerce/products/file-manager',
+			path: '/apps/e-commerce/receipts/file-manager',
 			component: React.lazy(() => import('../file-manager/FileManagerApp'))
 			// component: React.lazy(() => import('./orders/Orders'))
 			// component: () => <Redirect to="/apps/e-commerce/file-manager" />
 		},
 		{
 			path: '/apps/e-commerce',
-			component: () => <Redirect to="/apps/e-commerce/products/file-manager" />
+			component: () => <Redirect to="/apps/e-commerce/receipts/file-manager" />
 		},
 	]
 };

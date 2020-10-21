@@ -35,7 +35,7 @@ function FuseChipSelectDoc() {
 
 			<ul>
 				<li className="mb-8">
-					<Link to="/apps/e-commerce/products/1">E-Commerce Product Page</Link>
+					<Link to="/apps/e-commerce/receipts/1">E-Commerce Product Page</Link>
 				</li>
 			</ul>
 		</>

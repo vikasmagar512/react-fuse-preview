@@ -6,7 +6,7 @@ const locale = {
 
 	CALENDAR: 'Takvim',
 	ECOMMERCE: 'E-Ticaret',
-	RECEIPTS: 'RECEIPTS',
+	RECEIPTS: 'Receipts',
 	SUBMIT_RECEIPTS:'Submit receipts',
 	RECEIPT_STATUS:'Receipt status',
 	APPROVE_RECEIPTS:'Approve Receipt',

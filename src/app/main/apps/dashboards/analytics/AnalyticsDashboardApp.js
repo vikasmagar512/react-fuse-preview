@@ -24,7 +24,7 @@ function AnalyticsDashboardApp() {
 	const widgets = useSelector(selectWidgetsEntities);
 
 	useEffect(() => {
-		dispatch(getWidgets());
+		// dispatch(getWidgets());
 	}, [dispatch]);
 
 	if (_.isEmpty(widgets)) {
@@ -69,7 +69,7 @@ function AnalyticsDashboardApp() {
 						</div>
 
 						<FuseAnimate delay={600}>
-	<Typography className="px-16 pb-8 text-18 font-300">{t('WHERE_ARE_YOUR_USERS')}</Typography>
+							<Typography className="px-16 pb-8 text-18 font-300">{t('WHERE_ARE_YOUR_USERS')}</Typography>
 						</FuseAnimate>
 
 						<div className="widget w-full p-16 pb-32">

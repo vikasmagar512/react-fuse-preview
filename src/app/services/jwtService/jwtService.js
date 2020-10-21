@@ -1,10 +1,110 @@
 import FuseUtils from '@fuse/utils/FuseUtils';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import _ from '@lodash';
+import NoteFormAddListItem from 'app/main/apps/notes/note-form/checklist/NoteFormAddListItem';
+
 /* eslint-disable camelcase */
 
 class JwtService extends FuseUtils.EventEmitter {
+	authDB = {
+		users: [
+			{
+				uuid: 'XgbuVEXBU5gtSKdbQRP1Zbbby1i1',
+				from: 'custom-db',
+				password: 'admin',
+				role: 'admin',
+				data: {
+					displayName: 'Abbott Keitch',
+					photoURL: 'assets/images/avatars/Abbott.jpg',
+					email: 'admin',
+					settings: {
+						layout: {
+							style: 'layout1',
+							config: {
+								scroll: 'content',
+								navbar: {
+									display: true,
+									folded: true,
+									position: 'left'
+								},
+								toolbar: {
+									display: true,
+									style: 'fixed',
+									position: 'below'
+								},
+								footer: {
+									display: false,
+									style: 'fixed',
+									position: 'below'
+								},
+								mode: 'fullwidth',
+								rightSidePanel:{
+									display: false,
+								}
+							}
+						},
+						customScrollbars: true,
+						theme: {
+							main: 'defaultDark',
+							navbar: 'defaultDark',
+							toolbar: 'defaultDark',
+							footer: 'defaultDark'
+						}
+					},
+					shortcuts: ['calendar', 'mail', 'contacts']
+				}
+			},
+			{
+				uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
+				from: 'custom-db',
+				password: 'staff',
+				role: 'staff',
+				data: {
+					displayName: 'Arnold Matlock',
+					photoURL: 'assets/images/avatars/Arnold.jpg',
+					email: 'staff',
+					settings: {
+						layout: {
+							style: 'layout2',
+							config: {
+								mode: 'boxed',
+								scroll: 'content',
+								navbar: {
+									display: true
+								},
+								toolbar: {
+									display: true,
+									position: 'below'
+								},
+								footer: {
+									display: false,
+									style: 'fixed'
+								},
+								rightSidePanel:{
+									display: false,
+								}
+							}
+						},
+						customScrollbars: true,
+						theme: {
+							main: 'greeny',
+							navbar: 'mainThemeDark',
+							toolbar: 'mainThemeDark',
+							footer: 'mainThemeDark'
+						}
+					},
+					shortcuts: ['calendar', 'mail', 'contacts', 'todo']
+				}
+			}
+		]
+	};
 	init() {
+		// axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
+		axios.defaults.baseURL = "http://192.168.43.192:3001/api"
+		// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+		axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 		this.setInterceptors();
 		this.handleAuthentication();
 	}
@@ -48,8 +148,9 @@ class JwtService extends FuseUtils.EventEmitter {
 	createUser = data => {
 		return new Promise((resolve, reject) => {
 			axios.post('/api/auth/register', data).then(response => {
+				debugger
 				if (response.data.user) {
-					this.setSession(response.data.access_token);
+					this.setSession(response.data.token);
 					resolve(response.data.user);
 				} else {
 					reject(response.data.error);
@@ -57,22 +158,35 @@ class JwtService extends FuseUtils.EventEmitter {
 			});
 		});
 	};
-
+	
 	signInWithEmailAndPassword = (email, password) => {
 		return new Promise((resolve, reject) => {
 			axios
-				.get('/api/auth', {
-					data: {
-						email,
-						password
-					}
+				.post('/auth/login', {
+					username:email,
+					password
 				})
 				.then(response => {
-					if (response.data.user) {
-						this.setSession(response.data.access_token);
-						resolve(response.data.user);
+					const {data} = response.data 
+					debugger
+					const userTemplate = _.cloneDeep(this.authDB.users.find(_user => _user.role === data.user.role));
+					debugger
+					const user = {
+							uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
+							from: 'custom-db',
+							role: data.user.role,
+							data: {
+								...data.user,
+								email: data.user.userName,
+								settings: userTemplate.data.settings
+							}
+					}
+					debugger
+					if (data.user) {
+						this.setSession(data.token);
+						resolve(user);
 					} else {
-						reject(response.data.error);
+						reject(data.error);
 					}
 				});
 		});
@@ -81,15 +195,28 @@ class JwtService extends FuseUtils.EventEmitter {
 	signInWithToken = () => {
 		return new Promise((resolve, reject) => {
 			axios
-				.get('/api/auth/access-token', {
-					data: {
-						access_token: this.getAccessToken()
-					}
+				.post('/auth/verify-token', {
+					access_token: this.getAccessToken()
 				})
 				.then(response => {
-					if (response.data.user) {
-						this.setSession(response.data.access_token);
-						resolve(response.data.user);
+					const {data} = response.data 
+					debugger
+					const userTemplate = _.cloneDeep(this.authDB.users.find(_user => _user.role === data.user.role));
+					debugger
+					const user = {
+							uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
+							from: 'custom-db',
+							role: data.user.role,
+							data: {
+								...data.user,
+								email: data.user.userName,
+								settings: userTemplate.data.settings
+							}
+					}
+					debugger
+					if (data.user) {
+						// this.setSession(data.token);
+						resolve(user);
 					} else {
 						this.logout();
 						reject(new Error('Failed to login with token.'));
@@ -128,6 +255,7 @@ class JwtService extends FuseUtils.EventEmitter {
 		}
 		const decoded = jwtDecode(access_token);
 		const currentTime = Date.now() / 1000;
+		debugger
 		if (decoded.exp < currentTime) {
 			console.warn('access token expired');
 			return false;

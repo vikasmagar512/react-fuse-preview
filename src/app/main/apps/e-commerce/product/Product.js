@@ -77,7 +77,7 @@ function Product(props) {
 									className="normal-case flex items-center sm:mb-12"
 									component={Link}
 									role="button"
-									to="/apps/e-commerce/products"
+									to="/apps/e-commerce/receipts"
 									color="inherit"
 								>
 									<Icon className="text-20">

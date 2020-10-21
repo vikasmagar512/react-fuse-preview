@@ -5,7 +5,7 @@ const locale = {
 	PROJECT: 'Project',
 	CALENDAR: 'التقويم',
 	ECOMMERCE: 'التجارة الإلكترونية',
-	RECEIPTS: 'RECEIPTS',
+	RECEIPTS: 'Receipts',
 	SUBMIT_RECEIPTS:'Submit receipts',
 	RECEIPT_STATUS:'Receipt status',
 	APPROVE_RECEIPTS:'Approve Receipt',

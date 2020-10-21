@@ -5,7 +5,7 @@ const locale = {
 	ANALYTICS: '분석',
 	CALENDAR: '캘린더',
 	ECOMMERCE: '쇼핑몰',
-	RECEIPTS: 'RECEIPTS',
+	RECEIPTS: 'Receipts',
 	SUBMIT_RECEIPTS:'Submit receipts',
 	RECEIPT_STATUS:'Receipt status',
 	APPROVE_RECEIPTS:'Approve Receipt',

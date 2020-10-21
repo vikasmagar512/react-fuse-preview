@@ -31,14 +31,6 @@ function DetailSidebarHeader(props) {
 						<Icon>delete</Icon>
 					</IconButton>
 				</FuseAnimate>
-				<FuseAnimate animation="transition.expandIn" delay={200}>
-					<IconButton>
-						<Icon>cloud_download</Icon>
-					</IconButton>
-				</FuseAnimate>
-				<IconButton>
-					<Icon>more_vert</Icon>
-				</IconButton>
 			</div>
 
 			<div className="p-12">
@@ -49,7 +41,7 @@ function DetailSidebarHeader(props) {
 				</FuseAnimate>
 				<FuseAnimate delay={300}>
 					<Typography variant="caption" className="">
-						<span>Edited</span>
+						<span>Submitted</span>
 						<span>: {selectedItem.modified}</span>
 					</Typography>
 				</FuseAnimate>

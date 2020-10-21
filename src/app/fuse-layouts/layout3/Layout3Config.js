@@ -18,7 +18,7 @@ const config = {
 			display: true
 		},
 		rightSidePanel: {
-			display: true
+			display: false
 		}
 	},
 	form: {

@@ -361,7 +361,7 @@ function Order(props) {
 												<td>
 													<Typography
 														component={Link}
-														to={`/apps/e-commerce/products/${product.id}`}
+														to={`/apps/e-commerce/receipts/${product.id}`}
 														className="truncate"
 														style={{
 															color: 'inherit',

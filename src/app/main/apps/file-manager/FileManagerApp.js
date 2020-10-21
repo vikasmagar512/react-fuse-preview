@@ -55,7 +55,7 @@ function FileManagerApp(props) {
 								aria-label="Submit A Receipt"
 								className="absolute bottom-0 ltr:left-0 rtl:right-0 mx-16 -mb-28 z-999"
 								onClick={()=>{
-									props.history.push(`/apps/e-commerce/products/new`);
+									props.history.push(`/apps/e-commerce/receipts/new`);
 								}}
 							>
 								<Icon>add</Icon>

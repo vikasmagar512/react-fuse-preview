@@ -1,5 +1,4 @@
 import FuseSearch from '@fuse/core/FuseSearch';
-import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import AppBar from '@material-ui/core/AppBar';
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
@@ -42,9 +41,6 @@ function ToolbarLayout2(props) {
 					)}
 
 					<div className="flex flex-1">
-						<Hidden mdDown>
-							<FuseShortcuts />
-						</Hidden>
 					</div>
 
 					<div className="flex items-center px-8">

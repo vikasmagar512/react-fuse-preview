@@ -10,7 +10,7 @@ const FileManagerAppConfig = {
 		{
 			// path: '/apps/file-manager',
 			// path: '/',
-			path: '/apps/e-commerce/products/file-manager',
+			path: '/apps/e-commerce/receipts/file-manager',
 			component: React.lazy(() => import('./FileManagerApp'))
 		}
 	]
