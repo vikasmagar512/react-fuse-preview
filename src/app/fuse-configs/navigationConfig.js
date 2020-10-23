@@ -90,6 +90,13 @@ const navigationConfig = [
 					fg: '#FFFFFF'
 				}
 			},
+			{
+				id: 'profile',
+				title: 'Profile',
+				type: 'item',
+				icon: 'person',
+				url: '/pages/profile'
+			},
 		]
 	},
 ];

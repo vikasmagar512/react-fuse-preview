@@ -7,9 +7,13 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
+import QrReader from 'react-qr-reader'
+
 import AboutTab from './tabs/AboutTab';
 import PhotosVideosTab from './tabs/PhotosVideosTab';
 import TimelineTab from './tabs/TimelineTab';
+
+var QRCode = require('qrcode.react');
 
 const useStyles = makeStyles(theme => ({
 	layoutHeader: {
@@ -28,6 +32,16 @@ function ProfilePage() {
 
 	function handleTabChange(event, value) {
 		setSelectedTab(value);
+	}
+	const [result, setResult] = useState('No result')
+
+	const handleScan = data => {
+		if (data) {
+			setResult(data)
+		}
+	}
+	const handleError = err => {
+		console.error(err)
 	}
 
 	return (
@@ -63,43 +77,59 @@ function ProfilePage() {
 					</div>
 				</div>
 			}
-			contentToolbar={
-				<Tabs
-					value={selectedTab}
-					onChange={handleTabChange}
-					indicatorColor="primary"
-					textColor="primary"
-					variant="scrollable"
-					scrollButtons="off"
-					classes={{
-						root: 'h-64 w-full'
-					}}
-				>
-					<Tab
-						classes={{
-							root: 'h-64'
-						}}
-						label="Timeline"
-					/>
-					<Tab
-						classes={{
-							root: 'h-64'
-						}}
-						label="About"
-					/>
-					<Tab
-						classes={{
-							root: 'h-64'
-						}}
-						label="Photos & Videos"
-					/>
-				</Tabs>
-			}
+			// contentToolbar={
+			// 	<Tabs
+			// 		value={selectedTab}
+			// 		onChange={handleTabChange}
+			// 		indicatorColor="primary"
+			// 		textColor="primary"
+			// 		variant="scrollable"
+			// 		scrollButtons="off"
+			// 		classes={{
+			// 			root: 'h-64 w-full'
+			// 		}}
+			// 	>
+			// 		<Tab
+			// 			classes={{
+			// 				root: 'h-64'
+			// 			}}
+			// 			label="Timeline"
+			// 		/>
+			// 		<Tab
+			// 			classes={{
+			// 				root: 'h-64'
+			// 			}}
+			// 			label="About"
+			// 		/>
+			// 		<Tab
+			// 			classes={{
+			// 				root: 'h-64'
+			// 			}}
+			// 			label="Photos & Videos"
+			// 		/>
+			// 	</Tabs>
+			// }
 			content={
-				<div className="p-16 sm:p-24">
-					{selectedTab === 0 && <TimelineTab />}
-					{selectedTab === 1 && <AboutTab />}
-					{selectedTab === 2 && <PhotosVideosTab />}
+				// <div className="p-16 sm:p-24">
+				// 	{selectedTab === 0 && <TimelineTab />}
+				// 	{selectedTab === 1 && <AboutTab />}
+				// 	{selectedTab === 2 && <PhotosVideosTab />}
+				// </div>
+				<div>
+					<QRCode value="QR Test" />
+					<Button>Scan</Button>
+					<p>{result}</p>
+					<div>
+						<QrReader
+							delay={200}
+							onError={handleError}
+							onScan={handleScan}
+							style={{
+								height: 256,
+								width: 256,
+							}}
+						/>
+					</div>
 				</div>
 			}
 		/>
