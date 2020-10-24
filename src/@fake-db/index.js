@@ -4,7 +4,7 @@
 // import './db/calendar-db';
 // import './db/chat-db';
 // import './db/contacts-db';
-// import './db/e-commerce-db';
+import './db/e-commerce-db';
 // import './db/faq-db';
 // import './db/file-manager-db';
 // import './db/icons-db';
@@ -18,6 +18,6 @@
 // import './db/scrumboard-db';
 // import './db/search-db';
 // import './db/todo-db';
-// import mock from './mock';
+import mock from './mock';
 
-// mock.onAny().passThrough();
+mock.onAny().passThrough();

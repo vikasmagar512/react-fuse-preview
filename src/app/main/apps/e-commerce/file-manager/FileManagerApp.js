@@ -12,15 +12,15 @@ import DetailSidebarHeader from './DetailSidebarHeader';
 import FileList from './FileList';
 import MainSidebarContent from './MainSidebarContent';
 import MainSidebarHeader from './MainSidebarHeader';
-import reducer from './store';
-import { getFiles } from './store/filesSlice';
+import reducer from '../store';
+import { getProducts } from '../store/productsSlice';
 
 function FileManagerApp(props) {
 	const dispatch = useDispatch();
 	const pageLayout = useRef(null);
 
 	useEffect(() => {
-		dispatch(getFiles());
+		dispatch(getProducts());
 	}, [dispatch]);
 
 	return (
@@ -84,4 +84,4 @@ function FileManagerApp(props) {
 	);
 }
 
-export default withReducer('fileManagerApp', reducer)(FileManagerApp);
+export default withReducer('eCommerceApp', reducer)(FileManagerApp);

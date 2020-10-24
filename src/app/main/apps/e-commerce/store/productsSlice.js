@@ -10,14 +10,24 @@ export const getProducts = createAsyncThunk('eCommerceApp/products/getProducts',
 
 const productsAdapter = createEntityAdapter({});
 
-export const { selectAll: selectProducts, selectById: selectProductById } = productsAdapter.getSelectors(
-	state => state.eCommerceApp.products
+export const { 
+	selectAll: selectProducts,
+	selectById: selectProductById,
+	selectEntities: selectFilesEntities,
+	// selectById: selectFileById
+} = productsAdapter.getSelectors(
+	state => {
+		debugger
+		return state.eCommerceApp.products
+	}
 );
 
 const productsSlice = createSlice({
 	name: 'eCommerceApp/products',
 	initialState: productsAdapter.getInitialState({
-		searchText: ''
+		searchText: '',
+		selectedItemId: '12',
+		selectedItems: []
 	}),
 	reducers: {
 		setProductsSearchText: {
@@ -25,6 +35,12 @@ const productsSlice = createSlice({
 				state.searchText = action.payload;
 			},
 			prepare: event => ({ payload: event.target.value || '' })
+		},
+		setSelectedItem: (state, action) => {
+			state.selectedItemId = action.payload;
+		},
+		setSelectedItems: (state, action) => {
+			state.selectedItems = action.payload;
 		}
 	},
 	extraReducers: {
@@ -32,6 +48,6 @@ const productsSlice = createSlice({
 	}
 });
 
-export const { setProductsSearchText } = productsSlice.actions;
+export const { setProductsSearchText, setSelectedItem, setSelectedItems } = productsSlice.actions;
 
 export default productsSlice.reducer;
