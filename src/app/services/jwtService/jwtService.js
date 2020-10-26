@@ -2,7 +2,7 @@ import FuseUtils from '@fuse/utils/FuseUtils';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import _ from '@lodash';
-import NoteFormAddListItem from 'app/main/apps/notes/note-form/checklist/NoteFormAddListItem';
+// import NoteFormAddListItem from 'app/main/apps/notes/note-form/checklist/NoteFormAddListItem';
 
 /* eslint-disable camelcase */
 
@@ -147,7 +147,6 @@ class JwtService extends FuseUtils.EventEmitter {
 	createUser = data => {
 		return new Promise((resolve, reject) => {
 			axios.post('/api/auth/register', data).then(response => {
-				debugger
 				if (response.data.user) {
 					this.setSession(response.data.token);
 					resolve(response.data.user);
@@ -167,9 +166,7 @@ class JwtService extends FuseUtils.EventEmitter {
 				})
 				.then(response => {
 					const {data} = response.data 
-					debugger
 					const userTemplate = _.cloneDeep(this.authDB.users.find(_user => _user.role === data.user.role));
-					debugger
 					const user = {
 							uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
 							from: 'custom-db',
@@ -180,7 +177,6 @@ class JwtService extends FuseUtils.EventEmitter {
 								settings: userTemplate.data.settings
 							}
 					}
-					debugger
 					if (data.user) {
 						this.setSession(data.token);
 						resolve(user);
@@ -199,9 +195,7 @@ class JwtService extends FuseUtils.EventEmitter {
 				})
 				.then(response => {
 					const {data} = response.data 
-					debugger
 					const userTemplate = _.cloneDeep(this.authDB.users.find(_user => _user.role === data.user.role));
-					debugger
 					const user = {
 							uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
 							from: 'custom-db',
@@ -212,7 +206,6 @@ class JwtService extends FuseUtils.EventEmitter {
 								settings: userTemplate.data.settings
 							}
 					}
-					debugger
 					if (data.user) {
 						// this.setSession(data.token);
 						resolve(user);
@@ -254,7 +247,6 @@ class JwtService extends FuseUtils.EventEmitter {
 		}
 		const decoded = jwtDecode(access_token);
 		const currentTime = Date.now() / 1000;
-		debugger
 		if (decoded.exp < currentTime) {
 			console.warn('access token expired');
 			return false;

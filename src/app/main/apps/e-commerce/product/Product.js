@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import _ from '@lodash';
@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 import FuseUtils from '@fuse/utils';
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseChipSelect from '@fuse/core/FuseChipSelect';
+// import FuseChipSelect from '@fuse/core/FuseChipSelect';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import { useForm, useDeepCompareEffect } from '@fuse/hooks';
@@ -122,15 +122,15 @@ function Product(props) {
 		};
 	}
 
-	function handleChipChange(value, name) {
-		setForm(
-			_.set(
-				{ ...form },
-				name,
-				value.map(item => item.value)
-			)
-		);
-	}
+	// function handleChipChange(value, name) {
+	// 	setForm(
+	// 		_.set(
+	// 			{ ...form },
+	// 			name,
+	// 			value.map(item => item.value)
+	// 		)
+	// 	);
+	// }
 
 	function canBeSubmitted() {
 		return form.images.length > 0 && !_.isEqual(product, form);
