@@ -169,7 +169,7 @@ function JWTLoginTab(props) {
 							</Typography>
 						</td>
 						<td>
-							<Typography>customer@gmail.com</Typography>
+							<Typography>user@gmail.com</Typography>
 						</td>
 						<td>
 							<Typography>12345</Typography>
