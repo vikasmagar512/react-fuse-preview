@@ -232,7 +232,6 @@ class JwtService extends FuseUtils.EventEmitter {
 				})
 				.then(response => {
 					let {data} = response.data 
-					debugger
 					data = {
 						...data, 
 						user: {
@@ -241,7 +240,6 @@ class JwtService extends FuseUtils.EventEmitter {
 							displayName: data.user.displayName ? data.user.displayName : data.user.firstName+' '+ data.user.lastName 
 						}
 					}
-					debugger
 					const userTemplate = _.cloneDeep(this.authDB.users.find(_user => _user.role === data.user.role));
 					const user = {
 							uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',

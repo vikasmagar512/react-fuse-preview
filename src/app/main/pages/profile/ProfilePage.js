@@ -3,18 +3,11 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import QrReader from 'react-qr-reader'
-
-import AboutTab from './tabs/AboutTab';
-import PhotosVideosTab from './tabs/PhotosVideosTab';
-import TimelineTab from './tabs/TimelineTab';
-
-var QRCode = require('qrcode.react');
+import QrReader from 'react-qr-reader';
+import QRCode from 'react-qr-code';
 
 const useStyles = makeStyles(theme => ({
 	layoutHeader: {
@@ -38,6 +31,7 @@ function ProfilePage() {
 	const [result, setResult] = useState('No result')
 
 	const handleScan = data => {
+		console.log("============", data);
 		if (data) {
 			setResult(data)
 		}
@@ -112,19 +106,14 @@ function ProfilePage() {
 			// 	</Tabs>
 			// }
 			content={
-				// <div className="p-16 sm:p-24">
-				// 	{selectedTab === 0 && <TimelineTab />}
-				// 	{selectedTab === 1 && <AboutTab />}
-				// 	{selectedTab === 2 && <PhotosVideosTab />}
-				// </div>
-				<div>
-					{user.role === 'user' && <QRCode value={Date.now()}/>}
-					{user.role === 'staff' && <>
+				<div className="qr-scanner">
+					{user.role === 'user' && <div><QRCode value={Date.now()}/></div>}
+					{user.role === 'staff' && <div>
 						<Button
 							onClick={() => toggleAllowScan(!allowScan)}
 						>Scan</Button>
 						<p>{result}</p>
-						{allowScan &&
+						{ allowScan &&
 							<div>
 								<QrReader
 									delay={200}
@@ -137,8 +126,7 @@ function ProfilePage() {
 								/>
 							</div>
 						}
-					</>
-					}
+					</div> }
 				</div>
 			}
 		/>
