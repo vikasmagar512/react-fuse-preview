@@ -3,8 +3,14 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import _ from '@lodash';
 import NoteFormAddListItem from 'app/main/apps/notes/note-form/checklist/NoteFormAddListItem';
+import history from '@history';
 
 /* eslint-disable camelcase */
+const mapping = [
+	{'roleId': 1, 'name': 'admin',},
+	{'roleId': 2, 'name': 'staff',},
+	{'roleId': 3, 'name': 'user'},
+]
 
 class JwtService extends FuseUtils.EventEmitter {
 	authDB = {
@@ -96,6 +102,48 @@ class JwtService extends FuseUtils.EventEmitter {
 					},
 					shortcuts: ['calendar', 'mail', 'contacts', 'todo']
 				}
+			},
+			{
+				uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
+				from: 'custom-db',
+				password: 'staff',
+				role: 'user',
+				data: {
+					displayName: 'Arnold Matlock',
+					photoURL: 'assets/images/avatars/Arnold.jpg',
+					email: 'staff',
+					settings: {
+						layout: {
+							style: 'layout2',
+							config: {
+								mode: 'boxed',
+								scroll: 'content',
+								navbar: {
+									display: true
+								},
+								toolbar: {
+									display: true,
+									position: 'below'
+								},
+								footer: {
+									display: false,
+									style: 'fixed'
+								},
+								rightSidePanel:{
+									display: false,
+								}
+							}
+						},
+						customScrollbars: true,
+						theme: {
+							main: 'greeny',
+							navbar: 'mainThemeDark',
+							toolbar: 'mainThemeDark',
+							footer: 'mainThemeDark'
+						}
+					},
+					shortcuts: ['calendar', 'mail', 'contacts', 'todo']
+				}
 			}
 		]
 	};
@@ -147,13 +195,30 @@ class JwtService extends FuseUtils.EventEmitter {
 	createUser = data => {
 		return new Promise((resolve, reject) => {
 			axios.post('/api/auth/register', data).then(response => {
-				debugger
-				if (response.data.user) {
-					this.setSession(response.data.token);
-					resolve(response.data.user);
+				if (response.data.status===1) {
+					history.push('/login')
+					// this.setSession(response.data.token);
+					// resolve(response.data.user);
 				} else {
-					reject(response.data.error);
+					reject(response.data.message);
 				}
+			});
+		});
+	};
+
+	verifyEmail = data => {
+		return new Promise((resolve, reject) => {
+			axios.get('/api/auth/verify-email', { params:data }).then(response => {
+				if(response.data.status===1){
+					history.push('/login')
+				}else{
+					reject(response.data.message);
+				}
+				// if (response.data.user) {
+				// 	resolve(response.data.user);
+				// } else {
+				// 	reject(response.data.error);
+				// }
 			});
 		});
 	};
@@ -166,10 +231,18 @@ class JwtService extends FuseUtils.EventEmitter {
 					password
 				})
 				.then(response => {
-					const {data} = response.data 
+					let {data} = response.data 
+					debugger
+					data = {
+						...data, 
+						user: {
+							...data.user,
+							role: mapping.find(role => role.roleId === data.user.roleId).name,
+							displayName: data.user.displayName ? data.user.displayName : data.user.firstName+' '+ data.user.lastName 
+						}
+					}
 					debugger
 					const userTemplate = _.cloneDeep(this.authDB.users.find(_user => _user.role === data.user.role));
-					debugger
 					const user = {
 							uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
 							from: 'custom-db',
@@ -180,7 +253,6 @@ class JwtService extends FuseUtils.EventEmitter {
 								settings: userTemplate.data.settings
 							}
 					}
-					debugger
 					if (data.user) {
 						this.setSession(data.token);
 						resolve(user);
@@ -198,10 +270,16 @@ class JwtService extends FuseUtils.EventEmitter {
 					access_token: this.getAccessToken()
 				})
 				.then(response => {
-					const {data} = response.data 
-					debugger
+					let {data} = response.data 
+					data = {
+						...data, 
+						user: {
+							...data.user,
+							role: mapping.find(role => role.roleId === data.user.roleId).name,
+							displayName: data.user.displayName ? data.user.displayName : data.user.firstName+' '+ data.user.lastName 
+						}
+					}
 					const userTemplate = _.cloneDeep(this.authDB.users.find(_user => _user.role === data.user.role));
-					debugger
 					const user = {
 							uuid: 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
 							from: 'custom-db',
@@ -209,10 +287,10 @@ class JwtService extends FuseUtils.EventEmitter {
 							data: {
 								...data.user,
 								email: data.user.userName,
-								settings: userTemplate.data.settings
+								settings: userTemplate.data.settings,
+								displayName: data.user.displayName ? data.user.displayName : data.user.firstName+' '+ data.user.lastName 
 							}
 					}
-					debugger
 					if (data.user) {
 						// this.setSession(data.token);
 						resolve(user);
@@ -254,7 +332,6 @@ class JwtService extends FuseUtils.EventEmitter {
 		}
 		const decoded = jwtDecode(access_token);
 		const currentTime = Date.now() / 1000;
-		debugger
 		if (decoded.exp < currentTime) {
 			console.warn('access token expired');
 			return false;

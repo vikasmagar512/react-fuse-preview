@@ -1,5 +1,6 @@
 import { authRoles } from 'app/auth';
 import Register from './Register';
+import EmailVerify from './EmailVerify';
 
 const RegisterConfig = {
 	settings: {
@@ -28,6 +29,10 @@ const RegisterConfig = {
 		{
 			path: '/register',
 			component: Register
+		},
+		{
+			path: '/verify-email',
+			component: EmailVerify
 		}
 	]
 };

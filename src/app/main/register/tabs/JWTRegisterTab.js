@@ -47,8 +47,8 @@ function JWTRegisterTab(props) {
 				<TextFieldFormsy
 					className="mb-16"
 					type="text"
-					name="displayName"
-					label="Display name"
+					name="username"
+					label="User name"
 					validations={{
 						minLength: 4
 					}}
@@ -60,28 +60,6 @@ function JWTRegisterTab(props) {
 							<InputAdornment position="end">
 								<Icon className="text-20" color="action">
 									person
-								</Icon>
-							</InputAdornment>
-						)
-					}}
-					variant="outlined"
-					required
-				/>
-
-				<TextFieldFormsy
-					className="mb-16"
-					type="text"
-					name="email"
-					label="Email"
-					validations="isEmail"
-					validationErrors={{
-						isEmail: 'Please enter a valid email'
-					}}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<Icon className="text-20" color="action">
-									email
 								</Icon>
 							</InputAdornment>
 						)
@@ -134,6 +112,77 @@ function JWTRegisterTab(props) {
 					required
 				/>
 
+				<TextFieldFormsy
+					className="mb-16"
+					type="text"
+					name="firstName"
+					label="First name"
+					validations={{
+						minLength: 4
+					}}
+					validationErrors={{
+						minLength: 'Min character length is 4'
+					}}
+					InputProps={{
+						endAdornment: (
+							<InputAdornment position="end">
+								<Icon className="text-20" color="action">
+									person
+								</Icon>
+							</InputAdornment>
+						)
+					}}
+					variant="outlined"
+					required
+				/>
+
+				<TextFieldFormsy
+					className="mb-16"
+					type="text"
+					name="lastName"
+					label="Last name"
+					validations={{
+						minLength: 4
+					}}
+					validationErrors={{
+						minLength: 'Min character length is 4'
+					}}
+					InputProps={{
+						endAdornment: (
+							<InputAdornment position="end">
+								<Icon className="text-20" color="action">
+									person
+								</Icon>
+							</InputAdornment>
+						)
+					}}
+					variant="outlined"
+					required
+				/>
+
+				<TextFieldFormsy
+					className="mb-16"
+					type="text"
+					name="phone"
+					label="Phone"
+					validations={{
+						minLength: 10
+					}}
+					validationErrors={{
+						minLength: 'Min character length is 10'
+					}}
+					InputProps={{
+						endAdornment: (
+							<InputAdornment position="end">
+								<Icon className="text-20" color="action">
+									person
+								</Icon>
+							</InputAdornment>
+						)
+					}}
+					variant="outlined"
+					required
+				/>
 				<Button
 					type="submit"
 					variant="contained"

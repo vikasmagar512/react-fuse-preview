@@ -17,7 +17,6 @@ export const {
 	// selectById: selectFileById
 } = productsAdapter.getSelectors(
 	state => {
-		debugger
 		return state.eCommerceApp.products
 	}
 );

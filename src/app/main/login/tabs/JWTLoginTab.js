@@ -143,10 +143,10 @@ function JWTLoginTab(props) {
 							</Typography>
 						</td>
 						<td>
-							<Typography>admin</Typography>
+							<Typography>admin@gmail.com</Typography>
 						</td>
 						<td>
-							<Typography>admin</Typography>
+							<Typography>12345</Typography>
 						</td>
 					</tr>
 					<tr>
@@ -156,10 +156,23 @@ function JWTLoginTab(props) {
 							</Typography>
 						</td>
 						<td>
-							<Typography>staff</Typography>
+							<Typography>staff@gmail.com</Typography>
 						</td>
 						<td>
-							<Typography>staff</Typography>
+							<Typography>12345</Typography>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<Typography className="font-600" color="textSecondary">
+								Customer
+							</Typography>
+						</td>
+						<td>
+							<Typography>customer@gmail.com</Typography>
+						</td>
+						<td>
+							<Typography>12345</Typography>
 						</td>
 					</tr>
 				</tbody>

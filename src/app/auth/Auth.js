@@ -11,7 +11,7 @@ import { setUserDataFirebase, setUserDataAuth0, setUserData, logoutUser } from '
 
 class Auth extends Component {
 	state = {
-		waitAuthCheck: true
+		waitAuthCheck: false
 	};
 
 	componentDidMount() {
@@ -36,7 +36,6 @@ class Auth extends Component {
 				jwtService
 					.signInWithToken()
 					.then(user => {
-						debugger
 						this.props.setUserData(user);
 
 						resolve();

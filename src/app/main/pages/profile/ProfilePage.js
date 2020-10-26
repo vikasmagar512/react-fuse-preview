@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import QrReader from 'react-qr-reader'
 
 import AboutTab from './tabs/AboutTab';
@@ -29,7 +30,8 @@ const useStyles = makeStyles(theme => ({
 function ProfilePage() {
 	const classes = useStyles();
 	const [selectedTab, setSelectedTab] = useState(0);
-
+	const user = useSelector(({ auth }) => auth.user);
+	const [allowScan, toggleAllowScan] = useState(true)
 	function handleTabChange(event, value) {
 		setSelectedTab(value);
 	}
@@ -116,20 +118,27 @@ function ProfilePage() {
 				// 	{selectedTab === 2 && <PhotosVideosTab />}
 				// </div>
 				<div>
-					<QRCode value="QR Test" />
-					<Button>Scan</Button>
-					<p>{result}</p>
-					<div>
-						<QrReader
-							delay={200}
-							onError={handleError}
-							onScan={handleScan}
-							style={{
-								height: 256,
-								width: 256,
-							}}
-						/>
-					</div>
+					{user.role === 'user' && <QRCode value={Date.now()}/>}
+					{user.role === 'staff' && <>
+						<Button
+							onClick={() => toggleAllowScan(!allowScan)}
+						>Scan</Button>
+						<p>{result}</p>
+						{allowScan &&
+							<div>
+								<QrReader
+									delay={200}
+									onError={handleError}
+									onScan={handleScan}
+									style={{
+										height: 256,
+										width: 256,
+									}}
+								/>
+							</div>
+						}
+					</>
+					}
 				</div>
 			}
 		/>

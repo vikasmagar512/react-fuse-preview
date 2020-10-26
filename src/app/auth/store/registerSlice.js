@@ -3,20 +3,39 @@ import { showMessage } from 'app/store/fuse/messageSlice';
 import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
 import { createUserSettingsFirebase, setUserData } from './userSlice';
+import history from '@history';
 
-export const submitRegister = ({ displayName, password, email }) => async dispatch => {
+export const submitRegister = ({ username, password, firstName, lastName, phone }) => async dispatch => {
 	return jwtService
 		.createUser({
-			displayName,
+			username,
 			password,
-			email
+			firstName,
+			lastName,
+			phone
 		})
 		.then(user => {
-			dispatch(setUserData(user));
+			history.push('/login')
 			return dispatch(registerSuccess());
 		})
 		.catch(error => {
 			return dispatch(registerError(error));
+		});
+};
+
+export const verifyEmail = (data) => async dispatch => {
+	return jwtService
+		.verifyEmail(
+			data
+		)
+		.then(user => {
+			history.push('/login')
+			// dispatch(setUserData(user));
+			// return dispatch(registerSuccess());
+		})
+		.catch(error => {
+			console.log(error)
+			// return dispatch(registerError(error));
 		});
 };
 
