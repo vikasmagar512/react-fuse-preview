@@ -2,7 +2,6 @@ import FuseUtils from '@fuse/utils/FuseUtils';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import _ from '@lodash';
-import NoteFormAddListItem from 'app/main/apps/notes/note-form/checklist/NoteFormAddListItem';
 import history from '@history';
 
 /* eslint-disable camelcase */

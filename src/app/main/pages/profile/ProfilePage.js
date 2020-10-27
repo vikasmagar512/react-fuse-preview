@@ -22,17 +22,18 @@ const useStyles = makeStyles(theme => ({
 
 function ProfilePage() {
 	const classes = useStyles();
-	const [selectedTab, setSelectedTab] = useState(0);
+	// const [selectedTab, setSelectedTab] = useState(0);
 	const user = useSelector(({ auth }) => auth.user);
 	const [allowScan, toggleAllowScan] = useState(true)
-	function handleTabChange(event, value) {
-		setSelectedTab(value);
-	}
+	// function handleTabChange(event, value) {
+	// 	setSelectedTab(value);
+	// }
 	const [result, setResult] = useState('No result')
 
 	const handleScan = data => {
 		console.log("============", data);
 		if (data) {
+			// user
 			setResult(data)
 		}
 	}
@@ -107,7 +108,7 @@ function ProfilePage() {
 			// }
 			content={
 				<div className="qr-scanner">
-					{user.role === 'user' && <div><QRCode value={Date.now()}/></div>}
+					{user.role === 'user' && <div><QRCode value={`${user.data.displayName}`}/></div>}
 					{user.role === 'staff' && <div>
 						<Button
 							onClick={() => toggleAllowScan(!allowScan)}
