@@ -3,18 +3,14 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import QrReader from 'react-qr-reader'
-
-import AboutTab from './tabs/AboutTab';
-import PhotosVideosTab from './tabs/PhotosVideosTab';
-import TimelineTab from './tabs/TimelineTab';
-
-var QRCode = require('qrcode.react');
+import QrReader from 'react-qr-reader';
+import QRCode from 'react-qr-code';
+import axios from 'axios';
+import { showMessage } from 'app/store/fuse/messageSlice';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
 	layoutHeader: {
@@ -29,21 +25,44 @@ const useStyles = makeStyles(theme => ({
 
 function ProfilePage() {
 	const classes = useStyles();
-	const [selectedTab, setSelectedTab] = useState(0);
+	const dispatch = useDispatch();
 	const user = useSelector(({ auth }) => auth.user);
 	const [allowScan, toggleAllowScan] = useState(true)
-	function handleTabChange(event, value) {
-		setSelectedTab(value);
-	}
 	const [result, setResult] = useState('No result')
+	const [scannedCode, setScannedCode] = useState();	
 
 	const handleScan = data => {
 		if (data) {
-			setResult(data)
+			const filterData = data.split('*');
+			const params = {
+				"userName" : filterData[2],
+				"userId" : filterData[1],
+				"venue" : "Dummy Venue",
+				"timestamp" : filterData[3]
+			}
+			if(scannedCode !== params.userId) {
+				setScannedCode(params.userId);
+				setScannedUserProfile(params);
+				setResult(filterData[0]);
+			}
 		}
 	}
+
+	const setScannedUserProfile = async (data) => {
+		await axios.post('/api/save-attendance', data )
+		.then(res => {
+			if(res.data.responseCode == 201){
+				dispatch(showMessage({ message: res.data.message }));
+			}
+		}, err => {
+			if( err.message == 'Request failed with status code 400'){
+				dispatch(showMessage({ message: 'Your attendance has already been saved' }));
+			}
+		});
+	};
+
 	const handleError = err => {
-		console.error(err)
+		dispatch(showMessage({ message: err }));
 	}
 
 	return (
@@ -112,32 +131,26 @@ function ProfilePage() {
 			// 	</Tabs>
 			// }
 			content={
-				// <div className="p-16 sm:p-24">
-				// 	{selectedTab === 0 && <TimelineTab />}
-				// 	{selectedTab === 1 && <AboutTab />}
-				// 	{selectedTab === 2 && <PhotosVideosTab />}
-				// </div>
-				<div>
-					{user.role === 'user' && <QRCode value={Date.now()}/>}
-					{user.role === 'staff' && <>
-						<Button
-							onClick={() => toggleAllowScan(!allowScan)}
-						>Scan</Button>
-						<p>{result}</p>
-						{allowScan &&
-							<div>
+				<div className="qr-scanner">
+					{user.role === 'user' && <div>
+							<QRCode value={`${user.data.displayName}*${user.data.userId}*${user.data.email}*${Date.now()}`}/>
+						</div>
+					}
+					{user.role === 'staff' && <div>
+						<Button onClick={() => toggleAllowScan(!allowScan)}> Scan </Button>
+						<h2 className='align-center'>{result}</h2>
+						{ allowScan && <div>
 								<QrReader
-									delay={200}
+									delay={500}
 									onError={handleError}
 									onScan={handleScan}
 									style={{
 										height: 256,
 										width: 256,
-									}}
-								/>
-							</div>
-						}
-					</>
+									}} />
+								</div>
+							}
+						</div> 
 					}
 				</div>
 			}

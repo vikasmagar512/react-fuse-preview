@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { showMessage } from 'app/store/fuse/messageSlice';
 import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
-import { createUserSettingsFirebase, setUserData } from './userSlice';
+import { createUserSettingsFirebase } from './userSlice';
 import history from '@history';
 
 export const submitRegister = ({ username, password, firstName, lastName, phone }) => async dispatch => {
