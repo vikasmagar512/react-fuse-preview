@@ -155,8 +155,7 @@ class JwtService extends FuseUtils.EventEmitter {
 		]
 	};
 	init() {
-		// axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
-		axios.defaults.baseURL = 'http://127.0.0.1:3001';
+		axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
 		// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 		axios.defaults.headers.post['Content-Type'] = 'application/json';
 

@@ -8,7 +8,6 @@ export const getProducts = createAsyncThunk('eCommerceApp/products/getProducts',
 });
 
 export const deleteProduct = createAsyncThunk('eCommerceApp/product/deleteProduct', async product => {
-	debugger
 	const response = await axios.delete(`/api/receipts/${product.id}`);
 	const data = await response.data;
 	return product.id;

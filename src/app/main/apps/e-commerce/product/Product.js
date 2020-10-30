@@ -78,7 +78,6 @@ function Product(props) {
 			const { productId } = routeParams;
 
 			if (productId === 'new') {
-				alert('newProduct')
 				dispatch(newProduct());
 			} else {
 				dispatch(getProduct(routeParams));
