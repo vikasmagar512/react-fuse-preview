@@ -31,10 +31,10 @@ const rows = [
 		sort: true
 	},
 	{
-		id: 'contents',
+		id: 'item',
 		align: 'left',
 		disablePadding: false,
-		label: 'Contents',
+		label: 'Item',
 		sort: true
 	},
 	{
@@ -117,6 +117,16 @@ function OrdersTableHead(props) {
 										</ListItemIcon>
 										<ListItemText primary="Remove" />
 									</MenuItem>
+									{/* <MenuItem
+										onClick={() => {
+											closeSelectedOrdersMenu();
+										}}
+									>
+										<ListItemIcon className="min-w-40">
+											<Icon>delete</Icon>
+										</ListItemIcon>
+										<ListItemText primary="Approve" />
+									</MenuItem> */}
 								</MenuList>
 							</Menu>
 						</div>

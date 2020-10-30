@@ -34,7 +34,7 @@ function ProductsTable(props) {
 
 	useEffect(() => {
 		if (searchText.length !== 0) {
-			setData(_.filter(products, item => item.name.toLowerCase().includes(searchText.toLowerCase())));
+			setData(_.filter(products, item => item.item.toLowerCase().includes(searchText.toLowerCase())));
 			setPage(0);
 		} else {
 			setData(products);
@@ -143,7 +143,7 @@ function ProductsTable(props) {
 											/>
 										</TableCell>
 
-										<TableCell
+										{/* <TableCell
 											className="w-52 px-4 md:px-0"
 											component="th"
 											scope="row"
@@ -153,44 +153,36 @@ function ProductsTable(props) {
 												<img
 													className="w-full block rounded"
 													src={_.find(n.images, { id: n.featuredImageId }).url}
-													alt={n.name}
+													alt={n.item}
 												/>
 											) : (
 												<img
 													className="w-full block rounded"
 													src="assets/images/ecommerce/product-image-placeholder.png"
-													alt={n.name}
+													alt={n.item}
 												/>
 											)}
-										</TableCell>
+										</TableCell> */}
 
 										<TableCell className="p-4 md:p-16" component="th" scope="row">
-											{n.name}
+											{n.item}
 										</TableCell>
 
 										<TableCell className="p-4 md:p-16 truncate" component="th" scope="row">
-											{n.categories.join(', ')}
+											{n.category}
+										</TableCell>
+
+										<TableCell className="p-4 md:p-16 truncate" component="th" scope="row">
+											{n.contents}
 										</TableCell>
 
 										<TableCell className="p-4 md:p-16" component="th" scope="row" align="right">
 											<span>$</span>
-											{n.priceTaxIncl}
+											{n.amount}
 										</TableCell>
 
 										<TableCell className="p-4 md:p-16" component="th" scope="row" align="right">
-											{n.quantity}
-											<i
-												className={clsx(
-													'inline-block w-8 h-8 rounded mx-8',
-													n.quantity <= 5 && 'bg-red',
-													n.quantity > 5 && n.quantity <= 25 && 'bg-orange',
-													n.quantity > 25 && 'bg-green'
-												)}
-											/>
-										</TableCell>
-
-										<TableCell className="p-4 md:p-16" component="th" scope="row" align="right">
-											{n.active ? (
+											{n.status ? (
 												<Icon className="text-green text-20">check_circle</Icon>
 											) : (
 												<Icon className="text-red text-20">remove_circle</Icon>

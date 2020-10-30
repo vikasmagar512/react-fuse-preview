@@ -2,7 +2,6 @@ import FuseAnimate from '@fuse/core/FuseAnimate';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
-// import IconButton from '@material-ui/core/IconButton';
 import withReducer from 'app/store/withReducer';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,8 +9,6 @@ import Breadcrumb from './Breadcrumb';
 import DetailSidebarContent from './DetailSidebarContent';
 import DetailSidebarHeader from './DetailSidebarHeader';
 import FileList from './FileList';
-// import MainSidebarContent from './MainSidebarContent';
-// import MainSidebarHeader from './MainSidebarHeader';
 import reducer from '../store';
 import { getProducts } from '../store/productsSlice';
 
@@ -33,21 +30,6 @@ function FileManagerApp(props) {
 			}}
 			header={
 				<div className="flex flex-col flex-1 p-8 sm:p-12 relative">
-					{/* <div className="flex items-center justify-between">
-						<IconButton
-							onClick={ev => {
-								pageLayout.current.toggleLeftSidebar();
-							}}
-							aria-label="open left sidebar"
-						>
-							<Icon>menu</Icon>
-						</IconButton>
-						<FuseAnimate animation="transition.expandIn" delay={200}>
-							<IconButton aria-label="search">
-								<Icon>search</Icon>
-							</IconButton>
-						</FuseAnimate>
-					</div> */}
 					<div className="flex flex-1 items-end">
 						<FuseAnimate animation="transition.expandIn" delay={600}>
 							<Fab
@@ -73,9 +55,6 @@ function FileManagerApp(props) {
 				</div>
 			}
 			content={<FileList pageLayout={pageLayout} />}
-			// leftSidebarVariant="temporary"
-			// leftSidebarHeader={<MainSidebarHeader />}
-			// leftSidebarContent={<MainSidebarContent />}
 			rightSidebarHeader={<DetailSidebarHeader />}
 			rightSidebarContent={<DetailSidebarContent />}
 			ref={pageLayout}

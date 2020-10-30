@@ -16,18 +16,12 @@ import clsx from 'clsx';
 import React, { useState } from 'react';
 
 const rows = [
-	{
-		id: 'image',
-		align: 'left',
-		disablePadding: true,
-		label: '',
-		sort: false
-	},
+
 	{
 		id: 'name',
 		align: 'left',
 		disablePadding: false,
-		label: 'Name',
+		label: 'Item',
 		sort: true
 	},
 	{
@@ -38,24 +32,24 @@ const rows = [
 		sort: true
 	},
 	{
-		id: 'priceTaxIncl',
-		align: 'right',
+		id: 'content',
+		align: 'left',
 		disablePadding: false,
-		label: 'Price',
+		label: 'Content',
 		sort: true
 	},
 	{
-		id: 'quantity',
+		id: 'amount',
 		align: 'right',
 		disablePadding: false,
-		label: 'Quantity',
+		label: 'Amount',
 		sort: true
 	},
 	{
-		id: 'active',
+		id: 'status',
 		align: 'right',
 		disablePadding: false,
-		label: 'Active',
+		label: 'Status',
 		sort: true
 	}
 ];

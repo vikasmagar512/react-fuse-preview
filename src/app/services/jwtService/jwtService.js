@@ -30,7 +30,7 @@ class JwtService extends FuseUtils.EventEmitter {
 								scroll: 'content',
 								navbar: {
 									display: true,
-									folded: true,
+									folded: false,
 									position: 'left'
 								},
 								toolbar: {
@@ -71,21 +71,25 @@ class JwtService extends FuseUtils.EventEmitter {
 					email: 'staff',
 					settings: {
 						layout: {
-							style: 'layout2',
+							style: 'layout1',
 							config: {
-								mode: 'boxed',
 								scroll: 'content',
 								navbar: {
-									display: true
+									display: true,
+									folded: false,
+									position: 'left'
 								},
 								toolbar: {
 									display: true,
+									style: 'fixed',
 									position: 'below'
 								},
 								footer: {
 									display: false,
-									style: 'fixed'
+									style: 'fixed',
+									position: 'below'
 								},
+								mode: 'fullwidth',
 								rightSidePanel:{
 									display: false,
 								}
@@ -93,10 +97,10 @@ class JwtService extends FuseUtils.EventEmitter {
 						},
 						customScrollbars: true,
 						theme: {
-							main: 'greeny',
-							navbar: 'mainThemeDark',
-							toolbar: 'mainThemeDark',
-							footer: 'mainThemeDark'
+							main: 'defaultDark',
+							navbar: 'defaultDark',
+							toolbar: 'defaultDark',
+							footer: 'defaultDark'
 						}
 					},
 					shortcuts: ['calendar', 'mail', 'contacts', 'todo']
@@ -113,21 +117,25 @@ class JwtService extends FuseUtils.EventEmitter {
 					email: 'staff',
 					settings: {
 						layout: {
-							style: 'layout2',
+							style: 'layout1',
 							config: {
-								mode: 'boxed',
 								scroll: 'content',
 								navbar: {
-									display: true
+									display: true,
+									folded: false,
+									position: 'left'
 								},
 								toolbar: {
 									display: true,
+									style: 'fixed',
 									position: 'below'
 								},
 								footer: {
 									display: false,
-									style: 'fixed'
+									style: 'fixed',
+									position: 'below'
 								},
+								mode: 'fullwidth',
 								rightSidePanel:{
 									display: false,
 								}
@@ -135,10 +143,10 @@ class JwtService extends FuseUtils.EventEmitter {
 						},
 						customScrollbars: true,
 						theme: {
-							main: 'greeny',
-							navbar: 'mainThemeDark',
-							toolbar: 'mainThemeDark',
-							footer: 'mainThemeDark'
+							main: 'defaultDark',
+							navbar: 'defaultDark',
+							toolbar: 'defaultDark',
+							footer: 'defaultDark'
 						}
 					},
 					shortcuts: ['calendar', 'mail', 'contacts', 'todo']
@@ -147,7 +155,8 @@ class JwtService extends FuseUtils.EventEmitter {
 		]
 	};
 	init() {
-		axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
+		// axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
+		axios.defaults.baseURL = 'http://127.0.0.1:3001';
 		// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 		axios.defaults.headers.post['Content-Type'] = 'application/json';
 

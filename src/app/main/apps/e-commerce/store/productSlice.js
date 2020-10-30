@@ -5,14 +5,12 @@ import FuseUtils from '@fuse/utils';
 export const getProduct = createAsyncThunk('eCommerceApp/product/getProduct', async params => {
 	const response = await axios.get('/api/e-commerce-app/product', { params });
 	const data = await response.data;
-
 	return data;
 });
 
 export const saveProduct = createAsyncThunk('eCommerceApp/product/saveProduct', async product => {
-	const response = await axios.post('/api/e-commerce-app/product/save', product);
+	const response = await axios.post('/api/receipts', product);
 	const data = await response.data;
-
 	return data;
 });
 
@@ -25,24 +23,16 @@ const productSlice = createSlice({
 			prepare: event => ({
 				payload: {
 					id: FuseUtils.generateGUID(),
-					name: '',
+					item: '',
 					handle: '',
-					description: '',
-					categories: [],
-					tags: [],
+					pattern: '',
+					receiver: '',
+					startDate: '',
+					category: '',
+					amount: '',
+					contents: '',
 					images: [],
-					priceTaxExcl: 0,
-					priceTaxIncl: 0,
-					taxRate: 0,
-					comparedPrice: 0,
-					quantity: 0,
-					sku: '',
-					width: '',
-					height: '',
-					depth: '',
-					weight: '',
-					extraShippingFee: 0,
-					active: true
+					status: 0
 				}
 			})
 		}

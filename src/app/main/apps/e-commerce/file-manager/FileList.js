@@ -85,10 +85,10 @@ function FileList(props) {
 								</TableCell>
 								<TableCell className="hidden sm:table-cell"
 									onClick={event => dispatch(setSelectedItem(item.id))}>
-									{item.modified}</TableCell>
+									{item.startDate}</TableCell>
 								<TableCell
 									onClick={event => dispatch(setSelectedItem(item.id))}>
-									{item.name}</TableCell>
+									{item.item}</TableCell>
 								<TableCell className="hidden sm:table-cell" align="right"
 									onClick={event => dispatch(setSelectedItem(item.id))}>
 									{item.amount}</TableCell>
