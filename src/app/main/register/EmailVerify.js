@@ -3,13 +3,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
-// import Tab from '@material-ui/core/Tab';
-// import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React, { useEffect } from 'react';
 import  { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import { verifyEmail } from 'app/auth/store/registerSlice';
 
 import * as qs from 'query-string';
@@ -34,17 +31,12 @@ const useStyles = makeStyles(theme => ({
 
 function EmailVerify(props) {
 	const classes = useStyles();
-	// const [selectedTab, setSelectedTab] = useState(0);
 	const dispatch = useDispatch();
 
 	const parsed = qs.parse(props.location.search);
 	useEffect(()=>{
 		dispatch(verifyEmail(parsed))
 	},[])
-
-	// function handleTabChange(event, value) {
-	// 	setSelectedTab(value);
-	// }
 
 	return (
 		<div

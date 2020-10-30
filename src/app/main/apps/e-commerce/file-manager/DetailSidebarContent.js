@@ -52,17 +52,6 @@ function DetailSidebarContent(props) {
 	return (
 		<FuseAnimate animation="transition.slideUpIn" delay={200}>
 			<div className="file-details p-16 sm:p-24">
-				<div className="preview h-128 sm:h-256 file-icon flex items-center justify-center">
-					<FuseAnimate animation="transition.expandIn" delay={300}>
-						<Icon className={clsx(classes.typeIcon, selectedItem.type, 'text-48')} />
-					</FuseAnimate>
-				</div>
-
-				<FormControlLabel
-					className="offline-switch"
-					control={<Switch checked={selectedItem.offline} aria-label="Available Offline" />}
-					label="Available Offline"
-				/>
 
 				<Typography variant="subtitle1" className="py-16">
 					Info
@@ -70,39 +59,25 @@ function DetailSidebarContent(props) {
 
 				<table className={clsx(classes.table, 'w-full text-justify')}>
 					<tbody>
-						<tr className="type">
-							<th>Type</th>
-							<td>{selectedItem.type}</td>
-						</tr>
-
-						<tr className="size">
-							<th>Size</th>
-							<td>{selectedItem.size === '' ? '-' : selectedItem.size}</td>
-						</tr>
-
-						<tr className="location">
-							<th>Location</th>
-							<td>{selectedItem.location}</td>
-						</tr>
-
-						<tr className="owner">
-							<th>Owner</th>
-							<td>{selectedItem.owner}</td>
-						</tr>
-
 						<tr className="modified">
-							<th>Modified</th>
-							<td>{selectedItem.modified}</td>
+							<th>Date</th>
+							<td>{selectedItem.startDate}</td>
 						</tr>
-
-						<tr className="opened">
-							<th>Opened</th>
-							<td>{selectedItem.opened}</td>
+						<tr className="size">
+							<th>Content</th>
+							<td>{selectedItem.contents === '' ? '-' : selectedItem.contents}</td>
 						</tr>
-
-						<tr className="created">
-							<th>Created</th>
-							<td>{selectedItem.created}</td>
+						<tr className="size">
+							<th>Categort</th>
+							<td>{selectedItem.category === '' ? '-' : selectedItem.category}</td>
+						</tr>
+						<tr className="type">
+							<th>Amount</th>
+							<td>{selectedItem.amount}</td>
+						</tr>
+						<tr className="size">
+							<th>Status</th>
+							<td>{selectedItem.status === '' ? '-' : selectedItem.status}</td>
 						</tr>
 					</tbody>
 				</table>

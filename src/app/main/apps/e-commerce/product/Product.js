@@ -66,9 +66,9 @@ function Product(props) {
 	const dispatch = useDispatch();
 	const product = useSelector(({ eCommerceApp }) => eCommerceApp.product);
     const theme = useTheme();
-    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [selectedCategory, setSelectedCategory] = useState(1);
 	const classes = useStyles(props);
-    
+
 
 	const { form, handleChange, setForm } = useForm(null);
 	const routeParams = useParams();
@@ -78,6 +78,7 @@ function Product(props) {
 			const { productId } = routeParams;
 
 			if (productId === 'new') {
+				alert('newProduct')
 				dispatch(newProduct());
 			} else {
 				dispatch(getProduct(routeParams));
@@ -122,18 +123,9 @@ function Product(props) {
 		};
 	}
 
-	// function handleChipChange(value, name) {
-	// 	setForm(
-	// 		_.set(
-	// 			{ ...form },
-	// 			name,
-	// 			value.map(item => item.value)
-	// 		)
-	// 	);
-	// }
-
 	function canBeSubmitted() {
-		return form.images.length > 0 && !_.isEqual(product, form);
+		// return form.images.length > 0 && 
+		return !_.isEqual(product, form);
 	}
 
 	if ((!product || (product && routeParams.productId !== product.id)) && routeParams.productId !== 'new') {
@@ -142,7 +134,14 @@ function Product(props) {
     function handleSelectedCategory(event) {
 		setSelectedCategory(event.target.value);
 	}
-
+	async function submitForm(){
+		await dispatch(saveProduct({
+			...form,
+			 images:[]
+			})
+		)
+		props.history.push('/apps/e-commerce/receipts')
+	}
 
 	return (
 		<FusePageCarded
@@ -171,29 +170,26 @@ function Product(props) {
 
 							<div className="flex items-center max-w-full">
 								<FuseAnimate animation="transition.expandIn" delay={300}>
-									{form.images.length > 0 && form.featuredImageId ? (
+									{form.images && form.images.length > 0 && form.featuredImageId ? (
 										<img
 											className="w-32 sm:w-48 rounded"
 											src={_.find(form.images, { id: form.featuredImageId }).url}
-											alt={form.name}
+											alt={form.item}
 										/>
 									) : (
 										<img
 											className="w-32 sm:w-48 rounded"
 											src="assets/images/ecommerce/product-image-placeholder.png"
-											alt={form.name}
+											alt={form.item}
 										/>
 									)}
 								</FuseAnimate>
 								<div className="flex flex-col min-w-0 mx-8 sm:mc-16">
 									<FuseAnimate animation="transition.slideLeftIn" delay={300}>
 										<Typography className="text-16 sm:text-20 truncate">
-											{form.name ? form.name : 'New Receipt'}
+											{form.item ? form.item : 'New Receipt'}
 										</Typography>
 									</FuseAnimate>
-									{/* <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-										<Typography variant="caption">Product Detail</Typography>
-									</FuseAnimate> */}
 								</div>
 							</div>
 						</div>
@@ -203,7 +199,7 @@ function Product(props) {
 								variant="contained"
 								color="secondary"
 								disabled={!canBeSubmitted()}
-								onClick={() => dispatch(saveProduct(form))}
+								onClick={() => submitForm()}
 							>
 								Save
 							</Button>
@@ -226,7 +222,7 @@ function Product(props) {
 									// inputProps={{
 									// 	max: dueDate
 									// }}
-									// value={startDate}
+									value={form.startDate}
 									onChange={handleChange}
 									variant="outlined"
 									fullWidth
@@ -244,11 +240,8 @@ function Product(props) {
                                             />
                                         }
                                     >
-                                        <MenuItem value="all">
-                                            <em> All </em>
-                                        </MenuItem>
-                                        {[{label:'asdf',id:1},{label:'all',id:2}].map(category => (
-                                            <MenuItem value={category.value} key={category.id}>
+                                        {[{label:'A',id:1},{label:'B',id:2}].map(category => (
+                                            <MenuItem value={category.id} key={category.id}>
                                                 {category.label}
                                             </MenuItem>
                                         ))}
@@ -258,13 +251,13 @@ function Product(props) {
 							<div className="flex -mx-4">
 								<TextField
 									className="mt-8 mb-16 mx-4"
-									error={form.name === ''}
+									error={form.item === ''}
 									required
 									label="Item"
 									autoFocus
-									id="name"
-									name="name"
-									value={form.name}
+									id="item"
+									name="item"
+									value={form.item}
 									onChange={handleChange}
 									variant="outlined"
 									fullWidth

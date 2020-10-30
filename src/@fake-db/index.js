@@ -4,7 +4,7 @@
 // import './db/calendar-db';
 // import './db/chat-db';
 // import './db/contacts-db';
-import './db/e-commerce-db';
+// import './db/e-commerce-db';
 // import './db/faq-db';
 // import './db/file-manager-db';
 // import './db/icons-db';
